@@ -8,6 +8,7 @@
         src: local('DotGothic16'), local('DotGothic16-Regular'), url('/fonts/DotGothic16-Regular_optimized.ttf');
         font-weight: normal;
     }
+
     @font-face {
         font-family: 'Space Grotesk';
         src: local('Space Grotesk'), local('SpaceGrotesk'), local('spacegrotesk'), local('space grotesk'), url('/fonts/SpaceGrotesk-VariableFont_wght.ttf');
@@ -17,6 +18,6 @@
     @font-face {
         font-family: 'Space Mono';
         src: local('Space Mono'), local('SpaceMono'), local('spacemono'), local('space mono'), url('/fonts/SpaceGrotesk-VariableFont_wght.ttf');
-        font-weight: normal; 
+        font-weight: normal;
     }
 }
