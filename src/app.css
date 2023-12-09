@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'DotGothic16';
+        src: local('DotGothic16'), local('DotGothic16-Regular'), url('/fonts/DotGothic16-Regular_optimized.ttf');
+        font-weight: normal;
+    }
+    @font-face {
+        font-family: 'Space Grotesk';
+        src: local('Space Grotesk'), local('SpaceGrotesk'), local('spacegrotesk'), local('space grotesk'), url('/fonts/SpaceGrotesk-VariableFont_wght.ttf');
+        font-weight: 300 400 500 600 700;
+    }
+
+    @font-face {
+        font-family: 'Space Mono';
+        src: local('Space Mono'), local('SpaceMono'), local('spacemono'), local('space mono'), url('/fonts/SpaceGrotesk-VariableFont_wght.ttf');
+        font-weight: normal; 
+    }
+}
