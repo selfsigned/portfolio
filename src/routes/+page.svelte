@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Linkedinsvg from '$lib/logo/linkedinsvg.svelte';
 	import Githubsvg from '$lib/logo/githubsvg.svelte';
-	import TypingAnim from '$lib/animations/typing.svelte';
+	import TypingAnim from '$lib/animations/typewritter.svelte';
 
 	export const looking_for_work = true;
 	export const contact_text = 'Contact me ✍';
@@ -55,14 +55,15 @@
 						</span>
 					</p>
 					<div class="mb-3 w-40 self-start font-mono">
-						&gt;<TypingAnim text={['DevOps', 'FullStack']} />
+						&gt;<span id="title-anim"></span>
+						<TypingAnim selector="#title-anim" text={['DevOps', 'FullStack']} />
 					</div>
 					<!-- Socials -->
-					<div class="flex justify-center space-x-2">
+					<div class="mr-20 flex justify-center space-x-2 md:mr-0">
 						<!-- github -->
 						<a href="https://github.com/selfsigned">
 							<svg
-								class="w-5 fill-base-content hover:fill-neutral-content lg:w-10"
+								class="w-5 fill-base-content hover:fill-neutral-content md:w-7 lg:w-10"
 								viewBox="0 0 100 100 "
 							>
 								<Githubsvg></Githubsvg>
@@ -71,7 +72,7 @@
 						<!-- linkedin -->
 						<a href="https://linkedin.com/in/selfsigned">
 							<svg
-								class="w-5 fill-base-content hover:fill-neutral-content lg:w-10"
+								class="w-5 fill-base-content hover:fill-neutral-content md:w-7 lg:w-10"
 								viewBox="0 0 24 24"
 							>
 								<Linkedinsvg></Linkedinsvg>
