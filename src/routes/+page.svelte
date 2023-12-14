@@ -54,9 +54,11 @@
 							XAVIER<br />PERRIN<br />
 						</span>
 					</p>
-					<div class="mb-3 w-40 self-start font-mono">
+					<div class="mb-3 w-40 self-start font-mono md:mb-5">
 						&gt;<span id="title-anim"></span>
-						<TypingAnim selector="#title-anim" text={['DevOps', 'FullStack']} />
+						<!-- Not FullStack (yet) -->
+						<!-- <TypingAnim selector="#title-anim" text={['DevOps', 'FullStack']} /> -->
+						<TypingAnim selector="#title-anim" text={['DevOps']} loop={false} />
 					</div>
 					<!-- Socials -->
 					<div class="mr-20 flex justify-center space-x-2 md:mr-0">
