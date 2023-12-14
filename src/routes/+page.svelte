@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Linkedinsvg from '$lib/logo/linkedinsvg.svelte';
 	import Githubsvg from '$lib/logo/githubsvg.svelte';
+	import TypingAnim from '$lib/animations/typewritter.svelte';
 
 	export const looking_for_work = true;
 	export const contact_text = 'Contact me ✍';
@@ -41,38 +42,45 @@
 		{/if}
 		<div class="grid grow grid-cols-1 md:grid-cols-2">
 			<!-- About me -->
-			<div class="flex h-full flex-col items-center justify-center">
+			<div
+				class="my-1 flex h-full flex-col items-center justify-center text-2xl
+				md:my-5 md:text-4xl lg:text-7xl"
+			>
 				<!-- Name / Job -->
 				<div>
-					<p class="my-1 text-2xl md:my-5 md:text-4xl lg:text-7xl">
+					<p>
 						HI, I'M<br />
 						<span class="text:2xl font-bitmap tracking-widest text-primary md:text-5xl lg:text-8xl">
 							XAVIER<br />PERRIN<br />
 						</span>
-						<!-- TODO typing animation -->
-						<span class="font-mono"> &gt;DevOps_ </span>
 					</p>
-				</div>
-				<!-- Socials -->
-				<div class="grid grid-cols-2">
-					<!-- github -->
-					<a class="mr-2" href="https://github.com/selfsigned">
-						<svg
-							class="mr-15 md:mr-30 w-5 fill-base-content hover:fill-neutral-content md:w-10"
-							viewBox="0 0 100 100 "
-						>
-							<Githubsvg></Githubsvg>
-						</svg>
-					</a>
-					<!-- linkedin -->
-					<a class="mr-2" href="https://linkedin.com/in/selfsigned">
-						<svg
-							class="mr-15 md:mr-30 w-5 fill-base-content hover:fill-neutral-content md:w-10"
-							viewBox="0 0 24 24"
-						>
-							<Linkedinsvg></Linkedinsvg>
-						</svg>
-					</a>
+					<div class="mb-3 w-40 self-start font-mono md:mb-5">
+						&gt;<span id="title-anim"></span>
+						<!-- Not FullStack (yet) -->
+						<!-- <TypingAnim selector="#title-anim" text={['DevOps', 'FullStack']} /> -->
+						<TypingAnim selector="#title-anim" text={['DevOps']} loop={false} />
+					</div>
+					<!-- Socials -->
+					<div class="mr-20 flex justify-center space-x-2 md:mr-0">
+						<!-- github -->
+						<a href="https://github.com/selfsigned">
+							<svg
+								class="w-5 fill-base-content hover:fill-neutral-content md:w-7 lg:w-10"
+								viewBox="0 0 100 100 "
+							>
+								<Githubsvg></Githubsvg>
+							</svg>
+						</a>
+						<!-- linkedin -->
+						<a href="https://linkedin.com/in/selfsigned">
+							<svg
+								class="w-5 fill-base-content hover:fill-neutral-content md:w-7 lg:w-10"
+								viewBox="0 0 24 24"
+							>
+								<Linkedinsvg></Linkedinsvg>
+							</svg>
+						</a>
+					</div>
 				</div>
 			</div>
 			<!-- Photo -->
