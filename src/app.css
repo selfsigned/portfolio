@@ -20,7 +20,7 @@
 	@font-face {
 		font-family: 'Space Mono';
 		src: local('Space Mono'), local('SpaceMono'), local('spacemono'), local('space mono'),
-			url('/fonts/SpaceGrotesk-VariableFont_wght.ttf');
+			url('/fonts/SpaceMono-Regular.ttf');
 		font-weight: normal;
 	}
 }

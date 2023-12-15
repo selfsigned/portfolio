@@ -12,7 +12,7 @@
 </svelte:head>
 
 <!-- hero -->
-<section>
+<section class="overflow-hidden">
 	<!-- CTA / Contact me -->
 	<div class="fixed right-10 top-5">
 		{#if looking_for_work}
@@ -33,10 +33,11 @@
 		{#if looking_for_work}
 			<!-- Open to work banner -->
 			<div class="rotate-180 justify-start whitespace-nowrap [writing-mode:vertical-lr]">
-				<!-- TODO infinite marquee -->
+				<!-- TODO infinite marquee (maybe)  -->
 				<p class="font-bitmap text-xl md:text-3xl">
-					Open to Work! Let's get in touch | Open to Work! Let's get in touch | Open to Work! Let's
-					get in touch | Open to Work! Let's get in touch |
+					{#each { length: 10 } as _}
+						Open to Work! Lets get in touch |&nbsp;
+					{/each}
 				</p>
 			</div>
 		{/if}
@@ -50,7 +51,9 @@
 				<div>
 					<p>
 						HI, I'M<br />
-						<span class="text:2xl font-bitmap tracking-widest text-primary md:text-5xl lg:text-8xl">
+						<span
+							class="text:2xl font-bitmap tracking-widest text-primary shadow-primary text-shadow-md md:text-5xl lg:text-8xl"
+						>
 							XAVIER<br />PERRIN<br />
 						</span>
 					</p>
@@ -63,7 +66,7 @@
 					<!-- Socials -->
 					<div class="mr-20 flex justify-center space-x-2 md:mr-0">
 						<!-- github -->
-						<a href="https://github.com/selfsigned">
+						<a target="_blank" rel="noopener" href="https://github.com/selfsigned">
 							<svg
 								class="w-5 fill-base-content hover:fill-neutral-content md:w-7 lg:w-10"
 								viewBox="0 0 100 100 "
@@ -72,7 +75,7 @@
 							</svg>
 						</a>
 						<!-- linkedin -->
-						<a href="https://linkedin.com/in/selfsigned">
+						<a target="_blank" rel="noopener" href="https://linkedin.com/in/selfsigned">
 							<svg
 								class="w-5 fill-base-content hover:fill-neutral-content md:w-7 lg:w-10"
 								viewBox="0 0 24 24"
@@ -84,8 +87,12 @@
 				</div>
 			</div>
 			<!-- Photo -->
-			<div class="grid grid-flow-col">
-				<!-- Photo will go here -->
+			<div class="flex flex-col justify-end">
+				<img
+					class="blur-[2.5px] drop-shadow-2xl md:blur-[3.5px]"
+					alt="My beautiful self, wearing sunglasses (WIP asset)"
+					src="/imgs/head.webp"
+				/>
 			</div>
 		</div>
 	</div>
