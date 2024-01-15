@@ -71,25 +71,9 @@
 					</div>
 				</div>
 			</div>
-			<!-- Photo -->
 			<div class="flex flex-col justify-end">
 				<!-- Put cool hero stuff here -->
 			</div>
 		</div>
-	</div>
-	<!-- CTA / Contact me -->
-	<div class="fixed right-10 top-5">
-		{#if looking_for_work}
-			<a
-				class="text-md btn font-bitmap md:text-lg"
-				href="mailto:me@selfigned.dev?subject=Super Cool Job Opportunity&body=Hi Xavier!"
-			>
-				{contact_text}
-			</a>
-		{:else}
-			<a class="text-md btn font-bitmap md:text-lg" href="mailto:me@selfigned.dev?body=Hi Xavier!">
-				{contact_text}
-			</a>
-		{/if}
 	</div>
 </div>

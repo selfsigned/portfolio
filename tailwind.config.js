@@ -43,6 +43,7 @@ export default {
           "base-content": "#ffffff",
         },
       },
+      'forest', 'cyberpunk'
     ],
   }
 }

@@ -12,6 +12,7 @@
 		"format": "prettier --write src/"
 	},
 	"devDependencies": {
+		"@iconify/svelte": "^3.1.6",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.27.4",
@@ -31,6 +32,7 @@
 	"type": "module",
 	"dependencies": {
 		"animejs": "^3.2.2",
+		"iconify-icon": "^1.0.8",
 		"typewriter-effect": "^2.21.0"
 	}
 }
