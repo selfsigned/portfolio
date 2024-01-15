@@ -73,11 +73,7 @@
 			</div>
 			<!-- Photo -->
 			<div class="flex flex-col justify-end">
-				<img
-					class="blur-[2.5px] drop-shadow-2xl md:blur-[3.5px]"
-					alt="My beautiful self, wearing sunglasses (WIP asset)"
-					src="/imgs/head.webp"
-				/>
+				<!-- Put cool hero stuff here -->
 			</div>
 		</div>
 	</div>
