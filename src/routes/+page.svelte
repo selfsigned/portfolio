@@ -1,11 +1,22 @@
 <script lang="ts">
+	import V86 from '$lib/v86/V86.svelte';
 	import TypingAnim from '$lib/animations/Typewritter.svelte';
 
+	import { base } from '$app/paths';
 	import IconGithub from '~icons/mdi/github-box';
 	import IconLinkedin from '~icons/mdi/linkedin';
 
 	export const looking_for_work = true;
 	export const contact_text = 'Contact me ✍';
+
+	// V86
+	const libv86Path = base + '/v86/libv86.js';
+	const wasmPath = base + '/v86/v86.wasm';
+	const biosURL = base + '/v86/seabios.bin';
+	const vgaBiosURL = base + '/v86/vgabios.bin';
+	const cdRomURL = base + '/v86/kfs.iso';
+	const ramMB = 16;
+	const vgaRamMB = 2;
 </script>
 
 <svelte:head>
@@ -62,8 +73,20 @@
 					</div>
 				</div>
 			</div>
-			<div class="flex flex-col justify-end">
+			<div class="flex flex-col justify-center">
 				<!-- Put cool hero stuff here -->
+				<div
+					class="mockup-window w-[700px] scale-50 transform-gpu border border-base-300 shadow-xl lg:scale-75 xl:scale-100"
+				>
+					<V86
+						class="font-mono text-sm"
+						{libv86Path}
+						{wasmPath}
+						{biosURL}
+						{vgaBiosURL}
+						{cdRomURL}
+					/>
+				</div>
 			</div>
 		</div>
 	</div>
