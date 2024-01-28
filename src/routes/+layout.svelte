@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../app.css';
 
-	import Drawer from '$lib/drawer.svelte';
-	import Navbar from '$lib/navbar.svelte';
+	import Drawer from '$lib/Drawer.svelte';
+	import Navbar from '$lib/Navbar.svelte';
 
 	const drawerID = 'navbar-drawer';
 	const githubURL = 'https://github.com/selfsigned';
