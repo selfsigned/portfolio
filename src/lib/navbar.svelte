@@ -1,8 +1,10 @@
 <script>
-	import ThemeSwitcher from '$lib/themeswitcher.svelte';
+	import ThemeSwitcher from '$lib/Themeswitcher.svelte';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
-	import Icon from '@iconify/svelte';
+
+	import IconGithub from '~icons/mdi/github-box';
+	import IconLinkedin from '~icons/mdi/linkedin';
 
 	export let title = '';
 	export let githubURL = '';
@@ -49,7 +51,7 @@
 				href={linkedinURL}
 				class="btn btn-ghost hidden w-auto sm:flex"
 			>
-				<Icon width="2rem" icon="mdi:linkedin"></Icon>
+				<IconLinkedin class="text-3xl" />
 			</a>
 			<a
 				target="_blank"
@@ -57,7 +59,7 @@
 				href={githubURL}
 				class="btn btn-ghost hidden w-auto sm:flex"
 			>
-				<Icon width="2rem" icon="mdi:github"></Icon>
+				<IconGithub class="text-3xl" />
 			</a>
 			<!-- Mozilla sure took their time implementing :has() ... -->
 			{#if themeswitcher && theme_support}

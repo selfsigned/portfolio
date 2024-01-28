@@ -1,7 +1,8 @@
 <script lang="ts">
-	import Linkedinsvg from '$lib/logo/linkedinsvg.svelte';
-	import Githubsvg from '$lib/logo/githubsvg.svelte';
 	import TypingAnim from '$lib/animations/typewritter.svelte';
+
+	import IconGithub from '~icons/mdi/github-box';
+	import IconLinkedin from '~icons/mdi/linkedin';
 
 	export const looking_for_work = true;
 	export const contact_text = 'Contact me ✍';
@@ -46,27 +47,17 @@
 						&gt;<span id="title-anim"></span>
 						<!-- Not FullStack (yet) -->
 						<!-- <TypingAnim selector="#title-anim" text={['DevOps', 'FullStack']} /> -->
-						<TypingAnim selector="#title-anim" text={['DevOps']} loop={false} />
+						<TypingAnim selector="#title-anim" text={['Dev']} loop={false} />
 					</div>
 					<!-- Socials -->
 					<div class="mr-10 flex justify-center space-x-2 md:mr-0">
 						<!-- github -->
 						<a target="_blank" rel="noopener" href="https://github.com/selfsigned">
-							<svg
-								class="w-7 fill-base-content hover:fill-neutral-content lg:w-10"
-								viewBox="0 0 100 100 "
-							>
-								<Githubsvg></Githubsvg>
-							</svg>
+							<IconGithub class="hover:text-neutral-content md:text-5xl" />
 						</a>
 						<!-- linkedin -->
 						<a target="_blank" rel="noopener" href="https://linkedin.com/in/selfsigned">
-							<svg
-								class="w-7 fill-base-content hover:fill-neutral-content lg:w-10"
-								viewBox="0 0 24 24"
-							>
-								<Linkedinsvg></Linkedinsvg>
-							</svg>
+							<IconLinkedin class="hover:text-neutral-content md:text-5xl" />
 						</a>
 					</div>
 				</div>

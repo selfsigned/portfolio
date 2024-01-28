@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { themeStore } from '$lib/stores/theme';
 	import { get } from 'svelte/store';
-	import Icon from '@iconify/svelte';
+
+	import IconThemeSelect from '~icons/gridicons/themes';
 
 	const availableThemes = [
 		{ name: 'Light', value: 'light' },
@@ -18,7 +19,8 @@
 
 <div class="dropdown">
 	<div tabindex="-1" role="button" class="btn btn-ghost">
-		<Icon width="2rem" icon="mdi:palette" />
+		<IconThemeSelect class="text-xl" />
+		<!-- <Icon width="2rem" icon="mdi:palette" /> -->
 		<svg
 			width="12px"
 			height="12px"
