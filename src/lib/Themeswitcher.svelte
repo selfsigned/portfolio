@@ -20,7 +20,6 @@
 <div class="dropdown">
 	<div tabindex="-1" role="button" class="btn btn-ghost">
 		<IconThemeSelect class="text-xl" />
-		<!-- <Icon width="2rem" icon="mdi:palette" /> -->
 		<svg
 			width="12px"
 			height="12px"

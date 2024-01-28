@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TypingAnim from '$lib/animations/typewritter.svelte';
+	import TypingAnim from '$lib/animations/Typewritter.svelte';
 
 	import IconGithub from '~icons/mdi/github-box';
 	import IconLinkedin from '~icons/mdi/linkedin';
