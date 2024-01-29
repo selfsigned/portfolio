@@ -20,8 +20,8 @@
 	});
 </script>
 
-<div class="bg-base-100 bg-opacity-90 shadow-md backdrop-blur transition-shadow">
-	<nav class="navbar">
+<div class="h-[4rem] bg-base-100 bg-opacity-90 shadow-md backdrop-blur transition-shadow">
+	<nav class="p0 navbar">
 		<div class="flex-1">
 			{#if drawerID.length > 0}
 				<label for={drawerID} class="btn btn-ghost drawer-button">

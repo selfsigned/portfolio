@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Canvas from '$lib/threlte/Canvas.svelte';
 	import V86 from '$lib/v86/V86.svelte';
 	import TypingAnim from '$lib/animations/Typewritter.svelte';
 
@@ -23,8 +24,13 @@
 	<title>Xavier Perrin</title>
 </svelte:head>
 
+<!-- 3D scene -->
+<div class="absolute h-full w-full">
+	<Canvas />
+</div>
+
 <!-- hero -->
-<div class="via-base--200 overflow-hidden bg-gradient-to-br from-base-100 from-65% to-base-300">
+<div class="overflow-hidden">
 	<!-- Content -->
 	<div class="flex h-screen flex-row">
 		{#if looking_for_work}
@@ -63,29 +69,19 @@
 					<!-- Socials -->
 					<div class="mr-10 flex justify-center space-x-2 md:mr-0">
 						<!-- github -->
-						<a target="_blank" rel="noopener" href="https://github.com/selfsigned">
+						<a class="z-50" target="_blank" rel="noopener" href="https://github.com/selfsigned">
 							<IconGithub class="hover:text-neutral-content md:text-5xl" />
 						</a>
 						<!-- linkedin -->
-						<a target="_blank" rel="noopener" href="https://linkedin.com/in/selfsigned">
+						<a
+							class="z-50"
+							target="_blank"
+							rel="noopener"
+							href="https://linkedin.com/in/selfsigned"
+						>
 							<IconLinkedin class="hover:text-neutral-content md:text-5xl" />
 						</a>
 					</div>
-				</div>
-			</div>
-			<div class="flex flex-col justify-center">
-				<!-- Put cool hero stuff here -->
-				<div
-					class="mockup-window w-[700px] scale-50 transform-gpu border border-base-300 shadow-xl lg:scale-75 xl:scale-100"
-				>
-					<V86
-						class="font-mono text-sm"
-						{libv86Path}
-						{wasmPath}
-						{biosURL}
-						{vgaBiosURL}
-						{cdRomURL}
-					/>
 				</div>
 			</div>
 		</div>
