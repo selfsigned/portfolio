@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import * as _ from '$lib/vendor/libv86.js';
 
 	export let ramMB = 32;
 	export let vgaRamMB = 2;
 	export let biosURL: string;
 	export let vgaBiosURL: string;
-	export let cdRomURL: string;
+	export let cdRomURL: string = '';
 	export let wasmPath: string;
-	export let libv86Path: string;
 
 	let muhclass = '';
 	export { muhclass as class };
@@ -35,10 +35,6 @@
 		console.log(emulator);
 	});
 </script>
-
-<svelte:head>
-	<script src={libv86Path}></script>
-</svelte:head>
 
 <div bind:this={screenContainer}>
 	<div class="whitespace-pre font-mono {muhclass}"></div>

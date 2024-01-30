@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Canvas from '$lib/threlte/Canvas.svelte';
-	import V86 from '$lib/v86/V86.svelte';
 	import TypingAnim from '$lib/animations/Typewritter.svelte';
 
 	import { base } from '$app/paths';
@@ -9,15 +8,6 @@
 
 	export const looking_for_work = true;
 	export const contact_text = 'Contact me ✍';
-
-	// V86
-	const libv86Path = base + '/v86/libv86.js';
-	const wasmPath = base + '/v86/v86.wasm';
-	const biosURL = base + '/v86/seabios.bin';
-	const vgaBiosURL = base + '/v86/vgabios.bin';
-	const cdRomURL = base + '/v86/kfs.iso';
-	const ramMB = 16;
-	const vgaRamMB = 2;
 </script>
 
 <svelte:head>
