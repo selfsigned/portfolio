@@ -1,6 +1,7 @@
-import { writable } from 'svelte/store';
+import { readable, writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
+// Theme
 const defaultTheme = 'dark';
 const clientValue = browser ? window.localStorage.getItem('theme') ?? defaultTheme : defaultTheme;
 

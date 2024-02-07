@@ -15,12 +15,12 @@
 </svelte:head>
 
 <!-- 3D scene -->
-<div class="absolute h-full w-full">
+<div class="fixed top-0 -z-10 h-full w-full">
 	<Canvas />
 </div>
 
 <!-- hero -->
-<div class="overflow-hidden">
+<div>
 	<!-- Content -->
 	<div class="flex h-screen flex-row">
 		{#if looking_for_work}
@@ -59,21 +59,19 @@
 					<!-- Socials -->
 					<div class="mr-10 flex justify-center space-x-2 md:mr-0">
 						<!-- github -->
-						<a class="z-50" target="_blank" rel="noopener" href="https://github.com/selfsigned">
+						<a target="_blank" rel="noopener" href="https://github.com/selfsigned">
 							<IconGithub class="hover:text-neutral-content md:text-5xl" />
 						</a>
 						<!-- linkedin -->
-						<a
-							class="z-50"
-							target="_blank"
-							rel="noopener"
-							href="https://linkedin.com/in/selfsigned"
-						>
+						<a target="_blank" rel="noopener" href="https://linkedin.com/in/selfsigned">
 							<IconLinkedin class="hover:text-neutral-content md:text-5xl" />
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div>
+		Stuff at the bottom <div class="h-40 w-40 bg-red-600" />
 	</div>
 </div>

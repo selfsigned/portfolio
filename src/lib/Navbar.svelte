@@ -20,11 +20,13 @@
 	});
 </script>
 
-<div class="h-[4rem] bg-base-100 bg-opacity-90 shadow-md backdrop-blur transition-shadow">
+<div
+	class="fixed left-0 right-0 m-auto mt-4 h-[4rem] w-10/12 rounded-full bg-base-100 bg-opacity-30 shadow-md backdrop-blur-md transition-shadow"
+>
 	<nav class="p0 navbar">
 		<div class="flex-1">
 			{#if drawerID.length > 0}
-				<label for={drawerID} class="btn btn-ghost drawer-button">
+				<label for={drawerID} class="btn btn-ghost drawer-button rounded-full">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -39,7 +41,7 @@
 					>
 				</label>
 			{/if}
-			<a href={base + '/'} class="btn btn-ghost hidden w-auto text-lg sm:flex">
+			<a href={base + '/'} class="btn btn-ghost hidden w-auto rounded-full text-lg sm:flex">
 				<img class="w-8" src={base + '/favicon.png'} alt="{title} logo" />
 				<span class="hidden md:flex">{title}</span>
 			</a>
@@ -49,7 +51,7 @@
 				target="_blank"
 				rel="noopener"
 				href={linkedinURL}
-				class="btn btn-ghost hidden w-auto sm:flex"
+				class="btn btn-ghost hidden w-auto rounded-full sm:flex"
 			>
 				<IconLinkedin class="text-3xl" />
 			</a>
@@ -57,17 +59,17 @@
 				target="_blank"
 				rel="noopener"
 				href={githubURL}
-				class="btn btn-ghost hidden w-auto sm:flex"
+				class="btn btn-ghost hidden w-auto rounded-full sm:flex"
 			>
 				<IconGithub class="text-3xl" />
 			</a>
 			<!-- Mozilla sure took their time implementing :has() ... -->
 			{#if themeswitcher && theme_support}
-				<ThemeSwitcher></ThemeSwitcher>
+				<ThemeSwitcher class="btn btn-ghost rounded-full" />
 			{/if}
 			<div>
 				<a
-					class="text-md btn font-bitmap"
+					class="text-md btn btn-primary rounded-full font-bitmap"
 					href="mailto:me@selfigned.dev?subject=Super Cool Job Opportunity&body=Hi Xavier!"
 					>Contact me ✍</a
 				>

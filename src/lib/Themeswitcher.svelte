@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { themeStore } from '$lib/stores/theme';
+	import { themeStore } from '$lib/stores/view';
 	import { get } from 'svelte/store';
 
 	import IconThemeSelect from '~icons/gridicons/themes';
@@ -18,7 +18,7 @@
 </script>
 
 <div class="dropdown">
-	<div tabindex="-1" role="button" class="btn btn-ghost">
+	<div tabindex="-1" role="button" class={$$props.class}>
 		<IconThemeSelect class="text-xl" />
 		<svg
 			width="12px"
