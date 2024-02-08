@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Projects from '$lib/projects/Projects.svelte';
 	import Canvas from '$lib/threlte/Canvas.svelte';
 	import TypingAnim from '$lib/animations/Typewritter.svelte';
 
@@ -15,12 +16,12 @@
 </svelte:head>
 
 <!-- 3D scene -->
-<div class="fixed top-0 -z-10 h-full w-full">
+<div class="fixed top-0 h-full w-full">
 	<Canvas />
 </div>
 
 <!-- hero -->
-<div>
+<div id="hero">
 	<!-- Content -->
 	<div class="flex h-screen flex-row">
 		{#if looking_for_work}
@@ -71,7 +72,7 @@
 			</div>
 		</div>
 	</div>
-	<div>
-		Stuff at the bottom <div class="h-40 w-40 bg-red-600" />
+	<div id="projects" class="ml-[5%] mr-[5%] md:mr-[50%]">
+		<Projects />
 	</div>
 </div>

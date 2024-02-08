@@ -25,6 +25,13 @@
 	<svelte:fragment slot="sidebar">
 		<ul class="menu min-h-full w-80 bg-base-200 p-4 text-base-content">
 			<li>
+				<h2 class="menu-title">Navigation</h2>
+				<ul>
+					<li>
+						<a href="/#hero">Home</a>
+						<a href="/#projects">Projects</a>
+					</li>
+				</ul>
 				<h2 class="menu-title">Socials</h2>
 				<ul>
 					<li>

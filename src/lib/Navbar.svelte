@@ -2,6 +2,7 @@
 	import ThemeSwitcher from '$lib/Themeswitcher.svelte';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
+	import { browser } from '$app/environment';
 
 	import IconGithub from '~icons/mdi/github-box';
 	import IconLinkedin from '~icons/mdi/linkedin';
@@ -20,9 +21,7 @@
 	});
 </script>
 
-<div
-	class="fixed left-0 right-0 m-auto mt-4 h-[4rem] w-10/12 rounded-full bg-base-100 bg-opacity-30 shadow-md backdrop-blur-md transition-shadow"
->
+<div class="transparent-card fixed left-0 right-0 m-auto ml-[5%] mr-[5%] mt-4 h-[4rem]">
 	<nav class="p0 navbar">
 		<div class="flex-1">
 			{#if drawerID.length > 0}
@@ -43,7 +42,7 @@
 			{/if}
 			<a href={base + '/'} class="btn btn-ghost hidden w-auto rounded-full text-lg sm:flex">
 				<img class="w-8" src={base + '/favicon.png'} alt="{title} logo" />
-				<span class="hidden md:flex">{title}</span>
+				<span class="hidden font-medium md:flex">{title}</span>
 			</a>
 		</div>
 		<div>

@@ -24,3 +24,9 @@
 		font-weight: normal;
 	}
 }
+
+@layer components {
+	.transparent-card {
+		@apply rounded-2xl bg-base-100 bg-opacity-30 shadow-md backdrop-blur-md;
+	}
+}
