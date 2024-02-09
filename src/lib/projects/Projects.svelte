@@ -1,9 +1,11 @@
 <script lang="ts">
+	import { routes } from '$lib/navigation';
+
 	import ProjectEntry from './ProjectEntry.svelte';
 </script>
 
 <div class="card-transparent bg-300 rounded-2xl p-4 shadow-md">
-	<h1 class="text-2xl">Projects</h1>
+	<h1 class="mb-2 text-2xl">{routes.projects.name}</h1>
 	<ProjectEntry
 		title="StoreCompanion"
 		year="2024"

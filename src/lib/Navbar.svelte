@@ -67,10 +67,7 @@
 				<ThemeSwitcher class="btn btn-ghost rounded-full" />
 			{/if}
 			<div>
-				<a
-					class="text-md btn btn-primary rounded-full font-bitmap"
-					href="mailto:me@selfigned.dev?subject=Super Cool Job Opportunity&body=Hi Xavier!"
-					>Contact me ✍</a
+				<a class="text-md btn btn-primary rounded-full font-bitmap" href="#contact">Contact me ✍</a
 				>
 			</div>
 		</div>
