@@ -3,12 +3,12 @@
 	import Scene from '$lib/threlte/Scene.svelte';
 
 	// dbg
-	import { Inspector } from 'three-inspect';
+	// import { Inspector } from 'three-inspect';
 
 	let scene;
 </script>
 
 <Canvas useLegacyLights={false}>
 	<Scene bind:this={scene} />
-	<Inspector />
+	<!-- <Inspector /> -->
 </Canvas>

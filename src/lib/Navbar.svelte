@@ -21,7 +21,7 @@
 	});
 </script>
 
-<div class="transparent-card fixed left-0 right-0 m-auto ml-[5%] mr-[5%] mt-4 h-[4rem]">
+<div class="card-transparent card-ml card-mr fixed left-0 right-0 mt-4 h-[4rem]">
 	<nav class="p0 navbar">
 		<div class="flex-1">
 			{#if drawerID.length > 0}

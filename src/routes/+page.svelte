@@ -20,10 +20,10 @@
 	<Canvas />
 </div>
 
-<!-- hero -->
-<div id="hero">
-	<!-- Content -->
-	<div class="flex h-screen flex-row">
+<!-- Content -->
+<div>
+	<!-- P1: hero -->
+	<div id="hero" class="flex h-screen flex-row">
 		{#if looking_for_work}
 			<!-- Open to work banner -->
 			<div class="rotate-180 justify-start whitespace-nowrap [writing-mode:vertical-lr]">
@@ -42,7 +42,7 @@
 				md:my-5 lg:text-7xl"
 			>
 				<!-- Name / Job -->
-				<div>
+				<div class="z-10">
 					<p>
 						HI, I'M<br />
 						<span
@@ -57,22 +57,14 @@
 						<!-- <TypingAnim selector="#title-anim" text={['DevOps', 'FullStack']} /> -->
 						<TypingAnim selector="#title-anim" text={['Dev']} loop={false} />
 					</div>
-					<!-- Socials -->
-					<div class="mr-10 flex justify-center space-x-2 md:mr-0">
-						<!-- github -->
-						<a target="_blank" rel="noopener" href="https://github.com/selfsigned">
-							<IconGithub class="hover:text-neutral-content md:text-5xl" />
-						</a>
-						<!-- linkedin -->
-						<a target="_blank" rel="noopener" href="https://linkedin.com/in/selfsigned">
-							<IconLinkedin class="hover:text-neutral-content md:text-5xl" />
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div id="projects" class="ml-[5%] mr-[5%] md:mr-[50%]">
-		<Projects />
+	<!-- P2: Projects -->
+	<div id="projects" class="flex h-screen items-center">
+		<div class="card-ml mr-[2.5%] sm:mr-[35%] md:mr-[50%]">
+			<Projects />
+		</div>
 	</div>
 </div>

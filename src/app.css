@@ -26,7 +26,13 @@
 }
 
 @layer components {
-	.transparent-card {
-		@apply rounded-2xl bg-base-100 bg-opacity-30 shadow-md backdrop-blur-md;
+	.card-transparent {
+		@apply rounded-2xl bg-base-100 bg-opacity-40 shadow-xl backdrop-blur-md;
+	}
+	.card-ml {
+		@apply ml-[2.5%] sm:ml-[5%];
+	}
+	.card-mr {
+		@apply mr-[2.5%] sm:mr-[5%];
 	}
 }

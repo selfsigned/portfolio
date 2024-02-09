@@ -3,7 +3,7 @@
 	import { HTML } from '@threlte/extras';
 	import { base } from '$app/paths';
 
-	import MacDraco from './models/mac-draco.svelte';
+	import LaptopModel from './models/Laptop.svelte';
 
 	// V86
 	import V86Component from '$lib/v86/V86.svelte';
@@ -15,9 +15,10 @@
 	const vgaRamMB = 2;
 </script>
 
-<MacDraco position.y={1}>
-	<HTML slot="screen" position={[0, 0.04, -0.8]} rotation.x={-Math.PI / 2} transform occlude>
-		<div class="h-[432px] w-[691px] scale-50 transform-gpu">
+<LaptopModel position={[0, 0, 8]}>
+	<HTML slot="screen" position={[-4.1, 0.04, -3.5]} rotation.x={-Math.PI / 2} transform occlude>
+		<!-- arbitrary size to limit the focus area -->
+		<div class="h-[10px] w-[10px] scale-50 transform-gpu select-none">
 			<V86Component
 				class="transform-gpu font-mono text-sm"
 				{wasmPath}
@@ -29,4 +30,4 @@
 			/>
 		</div>
 	</HTML>
-</MacDraco>
+</LaptopModel>
