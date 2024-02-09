@@ -12,7 +12,7 @@
 		<slot name="body" />
 	</div>
 	<!-- Drawer -->
-	<div class="drawer-side z-20">
+	<div class="drawer-side z-[99]">
 		<label for={drawerID} aria-label="close sidebar" class="drawer-overlay"></label>
 		<!-- Sidebar content here -->
 		<slot name="sidebar" />

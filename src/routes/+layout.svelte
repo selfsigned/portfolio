@@ -13,10 +13,8 @@
 <Drawer {drawerID}>
 	<!-- Body -->
 	<svelte:fragment slot="body">
-		<div
-			class="flex h-[calc(100dvh)] flex-col bg-base-300 bg-gradient-to-b from-base-300 to-base-100"
-		>
-			<div class="sticky z-10 w-full max-w-full">
+		<div class="flex h-[calc(100dvh)] flex-col">
+			<div class="sticky z-50 w-full max-w-full">
 				<Navbar {title} {drawerID} {linkedinURL} {githubURL}></Navbar>
 			</div>
 			<slot />
@@ -27,6 +25,13 @@
 	<svelte:fragment slot="sidebar">
 		<ul class="menu min-h-full w-80 bg-base-200 p-4 text-base-content">
 			<li>
+				<h2 class="menu-title">Navigation</h2>
+				<ul>
+					<li>
+						<a href="/#hero">Home</a>
+						<a href="/#projects">Projects</a>
+					</li>
+				</ul>
 				<h2 class="menu-title">Socials</h2>
 				<ul>
 					<li>
