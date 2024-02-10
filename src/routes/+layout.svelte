@@ -4,7 +4,7 @@
 	import { routes } from '$lib/navigation';
 	import Drawer from '$lib/Drawer.svelte';
 	import Navbar from '$lib/Navbar.svelte';
-	import Footer from '$lib/Footer.svelte';
+	import Footer from '$lib/footer/Footer.svelte';
 
 	const drawerID = 'navbar-drawer';
 	const githubURL = 'https://github.com/selfsigned';

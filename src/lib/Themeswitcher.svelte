@@ -8,6 +8,7 @@
 		{ name: 'Light', value: 'light' },
 		{ name: 'Dark', value: 'dark' },
 		{ name: 'Forest', value: 'forest' },
+		{ name: 'LSD', value: 'acid' },
 		{ name: 'CYBER', value: 'cyberpunk' }
 	];
 
@@ -34,7 +35,7 @@
 			<input
 				type="radio"
 				name="theme-dropdown"
-				class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
+				class="theme-controller btn btn-ghost btn-sm btn-block justify-start font-normal"
 				aria-label="Auto"
 				value={null}
 				on:change={themeSave}
@@ -45,7 +46,7 @@
 					<input
 						type="radio"
 						name="theme-dropdown"
-						class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
+						class="theme-controller btn btn-ghost btn-sm btn-block justify-start font-normal"
 						aria-label={theme.name}
 						value={theme.value}
 						on:change={themeSave}

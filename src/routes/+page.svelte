@@ -32,7 +32,7 @@
 				<!-- TODO infinite marquee (maybe)  -->
 				<p class="font-bitmap text-xl md:text-3xl">
 					{#each { length: 10 } as _}
-						Open to Work! Lets get in touch |&nbsp;
+						Open to Work! Let's get in touch |&nbsp;
 					{/each}
 				</p>
 			</div>
