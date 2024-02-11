@@ -11,6 +11,11 @@ on:
 env:
   TF_IN_AUTOMATION: 1
 
+# necessary for AWS
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   deploy_aws:
     runs-on: ubuntu-latest
@@ -21,6 +26,9 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: eu-north-1
+          role-to-assume: arn:aws:iam::913769753623:role/github_selfsigned.dev
+          mask-aws-account-id: true
+          role-duration-seconds: 600
 
       - name: Setup opentofu
         uses: opentofu/setup-opentofu@v1
