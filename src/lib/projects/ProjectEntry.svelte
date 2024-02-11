@@ -14,7 +14,7 @@
 <div class="collapse collapse-arrow mb-2 border border-base-300 shadow-md">
 	<input type="radio" name={accordionName} />
 	<div class="text-md collapse-title font-medium md:text-xl">
-		{title}
+		<span>{title}</span>
 		<span class="float-right font-light">
 			{#if year !== false}{year}{/if}
 			{#if year && location}

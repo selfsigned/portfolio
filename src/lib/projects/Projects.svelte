@@ -5,7 +5,7 @@
 </script>
 
 <div class="card-transparent bg-300 rounded-2xl p-4 shadow-md">
-	<h1 class="mb-2 text-2xl">{routes.projects.name}</h1>
+	<h1 class="card-font-title mb-2">{routes.projects.name.toUpperCase()}</h1>
 	<ProjectEntry
 		title="StoreCompanion"
 		year="2024"

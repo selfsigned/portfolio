@@ -26,6 +26,9 @@
 }
 
 @layer components {
+	.card-font-title {
+		@apply font-bitmap text-3xl tracking-wide;
+	}
 	.card-transparent {
 		@apply rounded-2xl bg-base-100 bg-opacity-40 shadow-xl backdrop-blur-md;
 	}

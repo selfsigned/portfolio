@@ -8,8 +8,40 @@ on:
     branches:
       - master
 
+env:
+  TF_IN_AUTOMATION: 1
+
 jobs:
+  deploy_aws:
+    runs-on: ubuntu-latest
+    outputs:
+      API_ENDPOINT: ${{steps.site-api-endpoint.outputs.SITE_API_ENDPOINT}}
+    steps:
+      - name: Setup AWS creds
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: eu-north-1
+
+      - name: Setup opentofu
+        uses: opentofu/setup-opentofu@v1
+
+      - name: Initialize tofu
+        run: tofu init -input=false
+
+      - name: Plan changeset
+        run: tofu -chdir=infra/ plan -out=tfplan -input=false
+
+      - name: Apply changeset
+        run: tofu -chdir=infra/ apply -input=false tfplan
+        # TODO skip when not on master
+        # if: github.ref == 'refs/heads/master'
+
+      - name: Add endpoint to output
+        id: site-api-endpoint
+        run: echo SITE_API_ENDPOINT=$(tofu -chdir=infra output -json | jq -r '.api_gateway_endpoint.value') >> "GITHUB_OUTPUT"
+
   build_site:
+    needs: deploy_aws
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,11 +56,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: build
+      - name: Build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
+          SITE_API_ENDPOINT: ${{ needs.deploy_aws.outputs.API_ENDPOINT }}
         run: |
           npm run build
+
+      - name: Archive build
+        uses: actions/upload-artifact@v4
+        with:
+          # this should match the `pages` option in your adapter-static options
+          path: 'build/'
 
       - name: Upload Artifacts
         if: github.ref == 'refs/heads/master'

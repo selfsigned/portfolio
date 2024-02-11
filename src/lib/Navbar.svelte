@@ -1,8 +1,9 @@
-<script>
+<script langs="ts">
 	import ThemeSwitcher from '$lib/Themeswitcher.svelte';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import { browser } from '$app/environment';
+	import { routes } from '$lib/navigation.ts';
 
 	import IconGithub from '~icons/mdi/github-box';
 	import IconLinkedin from '~icons/mdi/linkedin';
@@ -67,7 +68,9 @@
 				<ThemeSwitcher class="btn btn-ghost rounded-full" />
 			{/if}
 			<div>
-				<a class="text-md btn btn-primary rounded-full font-bitmap" href="#contact">Contact me ✍</a
+				<a
+					class="text-md btn btn-primary rounded-full font-bitmap font-normal"
+					href="#{routes.contact.id}">Contact me ✍</a
 				>
 			</div>
 		</div>

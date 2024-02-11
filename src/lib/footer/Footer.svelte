@@ -7,7 +7,7 @@
 </script>
 
 <div class="p-4">
-	<h1 class="mb-2 text-2xl">{routes.contact.name}</h1>
+	<h1 class="card-font-title mb-2">{routes.contact.name.toUpperCase()}</h1>
 	<div>
 		<!-- Contact form -->
 		<div class="max-w-[40rem]">
@@ -23,7 +23,9 @@
 				<!-- Supplemental stuff -->
 				<div class="flex flex-row place-self-end font-light">
 					<span>©Xavier Perrin, {year}</span>
-					<a href="https://github.com/selfsigned/selfsigned.github.io">, v{__COMMIT_INFO__}</a>
+					<a href="https://github.com/selfsigned/selfsigned.github.io"
+						>, v{__COMMIT_INFO__}, API: {__SITE_API_ENDPOINT__}</a
+					>
 				</div>
 			</div>
 		</div>
