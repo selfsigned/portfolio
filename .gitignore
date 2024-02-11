@@ -10,6 +10,8 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # Terraform
+#lambdas
+*_payload.zip
 # Local .terraform directories
 **/.terraform/*
 
