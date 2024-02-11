@@ -35,5 +35,8 @@ jobs:
     steps:
       - uses: opentofu/setup-opentofu@v1
 
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Run tofu format check
         run: tofu fmt -check infra/

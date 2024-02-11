@@ -8,7 +8,7 @@ terraform {
   backend "s3" { // terraform is awful
     bucket         = "github-action-wahgei"
     key            = "selfsigned.dev.tfstate"
-    region   = "eu-north-1"
+    region         = "eu-north-1"
     dynamodb_table = "terraformlock"
   }
 }

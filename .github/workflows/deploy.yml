@@ -20,7 +20,7 @@ jobs:
   deploy_aws:
     runs-on: ubuntu-latest
     outputs:
-      API_ENDPOINT: ${{steps.site-api-endpoint.outputs.SITE_API_ENDPOINT}}
+      SITE_API_ENDPOINT: ${{steps.site-api-endpoint.outputs.SITE_API_ENDPOINT}}
     steps:
       - name: Setup AWS creds
         uses: aws-actions/configure-aws-credentials@v4
@@ -30,23 +30,32 @@ jobs:
           mask-aws-account-id: true
           role-duration-seconds: 900
 
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Setup opentofu
         uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_wrapper: false
 
       - name: Initialize tofu
+        working-directory: ./infra
         run: tofu init -input=false
 
       - name: Plan changeset
-        run: tofu -chdir=infra/ plan -out=tfplan -input=false
+        working-directory: ./infra
+        run: tofu plan -out=tfplan -input=false
 
       - name: Apply changeset
-        run: tofu -chdir=infra/ apply -input=false tfplan
+        working-directory: ./infra
+        run: tofu apply -input=false tfplan
         # TODO skip when not on master
         # if: github.ref == 'refs/heads/master'
 
       - name: Add endpoint to output
+        working-directory: ./infra
         id: site-api-endpoint
-        run: echo SITE_API_ENDPOINT=$(tofu -chdir=infra output -json | jq -r '.api_gateway_endpoint.value') >> "GITHUB_OUTPUT"
+        run: echo SITE_API_ENDPOINT=$(tofu output -json | jq -r '.api_gateway_endpoint.value') >> "$GITHUB_OUTPUT"
 
   build_site:
     needs: deploy_aws
@@ -67,7 +76,7 @@ jobs:
       - name: Build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
-          SITE_API_ENDPOINT: ${{ needs.deploy_aws.outputs.API_ENDPOINT }}
+          SITE_API_ENDPOINT: ${{ needs.deploy_aws.outputs.SITE_API_ENDPOINT }}
         run: |
           npm run build
 
