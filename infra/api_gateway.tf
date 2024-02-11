@@ -5,12 +5,12 @@ resource "aws_apigatewayv2_api" "api_gateway" {
 
 resource "aws_apigatewayv2_stage" "api_gateway" {
   api_id = aws_apigatewayv2_api.api_gateway.id
-  name = "prod"
+  name   = "prod"
 
   auto_deploy = true
 
   default_route_settings {
-    throttling_rate_limit = 20
+    throttling_rate_limit  = 20
     throttling_burst_limit = 5
   }
 }
