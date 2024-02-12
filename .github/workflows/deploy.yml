@@ -2,14 +2,67 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: 'master'
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+env:
+  TF_IN_AUTOMATION: 1
+
+# necessary for AWS
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
+  deploy_aws:
+    runs-on: ubuntu-latest
+    outputs:
+      SITE_API_ENDPOINT: ${{steps.site-api-endpoint.outputs.SITE_API_ENDPOINT}}
+    steps:
+      - name: Setup AWS creds
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: eu-north-1
+          role-to-assume: arn:aws:iam::913769753623:role/github_selfsigned.dev
+          mask-aws-account-id: true
+          role-duration-seconds: 900
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup opentofu
+        uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_wrapper: false
+
+      - name: Initialize tofu
+        working-directory: ./infra
+        run: tofu init -input=false
+
+      - name: Plan changeset
+        working-directory: ./infra
+        run: tofu plan -out=tfplan -input=false
+
+      - name: Apply changeset
+        working-directory: ./infra
+        run: tofu apply -input=false tfplan
+        # TODO skip when not on master
+        if: github.ref == 'refs/heads/master'
+
+      - name: Add endpoint to output
+        working-directory: ./infra
+        id: site-api-endpoint
+        run: echo SITE_API_ENDPOINT=$(tofu output -json | jq -r '.api_gateway_invokeurl.value') >> "$GITHUB_OUTPUT"
+
   build_site:
+    needs: deploy_aws
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -20,19 +73,28 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: build
+      - name: Build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
+          SITE_API_ENDPOINT: ${{ needs.deploy_aws.outputs.SITE_API_ENDPOINT }}
         run: |
           npm run build
 
+      - name: Archive build
+        uses: actions/upload-artifact@v4
+        with:
+          # this should match the `pages` option in your adapter-static options
+          path: 'build/'
+
       - name: Upload Artifacts
+        if: github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v2
         with:
           # this should match the `pages` option in your adapter-static options
           path: 'build/'
 
   deploy:
+    if: github.ref == 'refs/heads/master'
     needs: build_site
     runs-on: ubuntu-latest
 

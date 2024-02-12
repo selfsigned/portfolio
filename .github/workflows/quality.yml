@@ -9,12 +9,12 @@ on:
       - master
 
 jobs:
-  prettier_and_build:
+  prettier:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -29,8 +29,14 @@ jobs:
         run: |
           npm run lint
 
-      - name: Build app
-        env:
-          BASE_PATH: '/${{ github.event.repository.name }}'
-        run: |
-          npm run build
+  tofu_fmt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: opentofu/setup-opentofu@v1
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run tofu format check
+        run: tofu fmt -check infra/
