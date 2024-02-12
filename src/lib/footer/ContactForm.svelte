@@ -10,7 +10,16 @@
 
 	let showToast = true;
 
-	async function sendInput(e: Event) {
+	let spamTimer: NodeJS.Timeout;
+	function preventSpam(func: Function) {
+		if (!(spamTimer == null)) {
+			clearTimeout(spamTimer);
+			notify('Please wait before sending a new message');
+		}
+		spamTimer = setTimeout(sendInput, 7200);
+	}
+
+	async function sendInput() {
 		// let the lambda handle validation, the browser should've checked the form for us
 		await fetch(`${variables.siteApiEndpoint}/contact`, {
 			method: 'POST',
@@ -37,7 +46,7 @@
 	}
 </script>
 
-<form class="form-control mb-2" on:submit|preventDefault={sendInput}>
+<form class="form-control mb-2" on:submit|preventDefault={preventSpam}>
 	<div class="mb-4 flex gap-4">
 		<input
 			type="text"
