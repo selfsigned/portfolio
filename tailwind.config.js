@@ -5,6 +5,7 @@ export default {
 	theme: {
 		fontFamily: {
 			bitmap: ['DotGothic16'],
+			vcr: ['VCR OSD Mono'],
 			sans: ['Space Grotesk'],
 			mono: ['Space Mono']
 		},
