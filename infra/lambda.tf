@@ -26,8 +26,8 @@ resource "aws_iam_role_policy_attachment" "contact_lambda_basic" {
 // Sendmail policy attached to role
 data "aws_iam_policy_document" "sendmail_policy" {
   statement {
-    effect = "Allow"
-    actions = ["ses:SendEmail", "ses:SendRawEmail"]
+    effect    = "Allow"
+    actions   = ["ses:SendEmail", "ses:SendRawEmail"]
     resources = ["*"]
   }
 }

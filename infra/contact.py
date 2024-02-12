@@ -52,7 +52,8 @@ def lambda_handler(event, context):
       if not message:
         return respond(400, 'Message required')
     except Exception as e:
-        return respond(500, type(e).__name__)
+        # return respond(500, type(e).__name__) dbg
+        return respond(400, "Bad Request")
     
     send_mail(name, email, message)
     return respond(200, 'Email sent')
