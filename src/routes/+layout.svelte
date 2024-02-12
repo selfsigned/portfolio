@@ -5,6 +5,7 @@
 	import Drawer from '$lib/Drawer.svelte';
 	import Navbar from '$lib/Navbar.svelte';
 	import Footer from '$lib/footer/Footer.svelte';
+	import Toast from '$lib/Toast.svelte';
 
 	const drawerID = 'navbar-drawer';
 	const githubURL = 'https://github.com/selfsigned';
@@ -26,6 +27,7 @@
 			<div id="contact" class="card-transparent card-ml card-mr">
 				<Footer />
 			</div>
+			<Toast />
 		</div>
 	</svelte:fragment>
 
