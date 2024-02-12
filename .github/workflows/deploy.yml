@@ -50,7 +50,7 @@ jobs:
         working-directory: ./infra
         run: tofu apply -input=false tfplan
         # TODO skip when not on master
-        # if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
 
       - name: Add endpoint to output
         working-directory: ./infra

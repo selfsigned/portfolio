@@ -3,7 +3,7 @@
 	import { variables } from '$lib/variables.ts';
 	import ContactForm from './ContactForm.svelte';
 
-	// Copyright / Commit
+	// Copyright
 	const year = new Date().getFullYear();
 </script>
 
@@ -16,6 +16,12 @@
 				<ContactForm />
 			{/if}
 		</div>
+		<!-- <div class="divider" /> -->
+		<div class="grid max-w-[40rem] place-items-center">
+			<span class="font-vcr text-xl">Or send me a mail</span>
+			<a href="mailto:me@selfsigned.dev" class="underline">me@selfsigned.dev</a>
+		</div>
+
 		<div class="divider h-0" />
 		<!-- Navigation and about -->
 		<div>
@@ -26,9 +32,7 @@
 				<!-- Supplemental stuff -->
 				<div class="flex flex-row flex-wrap place-self-end font-light">
 					<span>©Xavier Perrin, {year},</span>
-					<a href="https://github.com/selfsigned/selfsigned.github.io">
-						v:{variables.commitInfo}, API: {variables.siteApiEndpoint}</a
-					>
+					<a href="https://github.com/selfsigned/selfsigned.github.io"> {variables.commitInfo}</a>
 				</div>
 			</div>
 		</div>
