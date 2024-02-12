@@ -57,8 +57,6 @@ jobs:
         id: site-api-endpoint
         run: echo SITE_API_ENDPOINT=$(tofu output -json | jq -r '.api_gateway_invokeurl.value') >> "$GITHUB_OUTPUT"
 
-      # TODO check endpoint health (query lambda maybe)
-
   build_site:
     needs: deploy_aws
     runs-on: ubuntu-latest

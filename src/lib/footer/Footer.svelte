@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { routes } from '$lib/navigation';
+	import { routes } from '$lib/navigation.ts';
+	import { variables } from '$lib/variables.ts';
 	import ContactForm from './ContactForm.svelte';
 
 	// Copyright / Commit
@@ -11,7 +12,9 @@
 	<div>
 		<!-- Contact form -->
 		<div class="max-w-[40rem]">
-			<ContactForm />
+			{#if variables.siteApiEndpoint}
+				<ContactForm />
+			{/if}
 		</div>
 		<div class="divider h-0" />
 		<!-- Navigation and about -->
@@ -21,10 +24,10 @@
 					<a class="text-md hover:underline" href="/#{route.id}">{route.name}</a>
 				{/each}
 				<!-- Supplemental stuff -->
-				<div class="flex flex-row place-self-end font-light">
-					<span>©Xavier Perrin, {year}</span>
-					<a href="https://github.com/selfsigned/selfsigned.github.io"
-						>, v{__COMMIT_INFO__}, API: {__SITE_API_ENDPOINT__}</a
+				<div class="flex flex-row flex-wrap place-self-end font-light">
+					<span>©Xavier Perrin, {year},</span>
+					<a href="https://github.com/selfsigned/selfsigned.github.io">
+						v:{variables.commitInfo}, API: {variables.siteApiEndpoint}</a
 					>
 				</div>
 			</div>

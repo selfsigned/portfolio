@@ -1,6 +1,12 @@
 resource "aws_apigatewayv2_api" "api_gateway" {
   name          = var.domain
   protocol_type = "HTTP"
+
+  cors_configuration {
+    allow_credentials = false
+    allow_origins     = ["https://${var.domain}"] # hack lol
+    allow_methods     = ["GET", "POST"]
+  }
 }
 
 resource "aws_apigatewayv2_stage" "api_gateway" {
