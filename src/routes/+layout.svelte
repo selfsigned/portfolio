@@ -1,8 +1,11 @@
 <script lang="ts">
 	import '../app.css';
 
+	import { routes } from '$lib/navigation';
 	import Drawer from '$lib/Drawer.svelte';
 	import Navbar from '$lib/Navbar.svelte';
+	import Footer from '$lib/footer/Footer.svelte';
+	import Toast from '$lib/Toast.svelte';
 
 	const drawerID = 'navbar-drawer';
 	const githubURL = 'https://github.com/selfsigned';
@@ -14,10 +17,17 @@
 	<!-- Body -->
 	<svelte:fragment slot="body">
 		<div class="flex h-[calc(100dvh)] flex-col">
+			<!-- Navbar -->
 			<div class="sticky z-50 w-full max-w-full">
 				<Navbar {title} {drawerID} {linkedinURL} {githubURL}></Navbar>
 			</div>
+			<!-- Body -->
 			<slot />
+			<!-- Footer -->
+			<div id="contact" class="card-transparent card-ml card-mr">
+				<Footer />
+			</div>
+			<Toast />
 		</div>
 	</svelte:fragment>
 
@@ -28,8 +38,9 @@
 				<h2 class="menu-title">Navigation</h2>
 				<ul>
 					<li>
-						<a href="/#hero">Home</a>
-						<a href="/#projects">Projects</a>
+						{#each Object.entries(routes) as [_, route]}
+							<a href="/#{route.id}">{route.name}</a>
+						{/each}
 					</li>
 				</ul>
 				<h2 class="menu-title">Socials</h2>

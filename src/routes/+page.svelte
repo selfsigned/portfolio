@@ -3,6 +3,8 @@
 	import Canvas from '$lib/threlte/Canvas.svelte';
 	import TypingAnim from '$lib/animations/Typewritter.svelte';
 
+	import { routes } from '$lib/navigation';
+
 	import { base } from '$app/paths';
 	import IconGithub from '~icons/mdi/github-box';
 	import IconLinkedin from '~icons/mdi/linkedin';
@@ -23,14 +25,14 @@
 <!-- Content -->
 <div>
 	<!-- P1: hero -->
-	<div id="hero" class="flex h-screen flex-row">
+	<div id={routes.hero.id} class="flex h-screen flex-row">
 		{#if looking_for_work}
 			<!-- Open to work banner -->
 			<div class="rotate-180 justify-start whitespace-nowrap [writing-mode:vertical-lr]">
 				<!-- TODO infinite marquee (maybe)  -->
 				<p class="font-bitmap text-xl md:text-3xl">
 					{#each { length: 10 } as _}
-						Open to Work! Lets get in touch |&nbsp;
+						Open to Work! Let's get in touch |&nbsp;
 					{/each}
 				</p>
 			</div>
@@ -62,7 +64,7 @@
 		</div>
 	</div>
 	<!-- P2: Projects -->
-	<div id="projects" class="flex h-screen items-center">
+	<div id={routes.projects.id} class="flex h-screen items-center">
 		<div class="card-ml mr-[2.5%] sm:mr-[35%] md:mr-[50%]">
 			<Projects />
 		</div>

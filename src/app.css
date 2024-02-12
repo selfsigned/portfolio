@@ -6,26 +6,35 @@
 	@font-face {
 		font-family: 'DotGothic16';
 		src: local('DotGothic16'), local('DotGothic16-Regular'),
-			url('/fonts/DotGothic16-Regular_optimized.ttf');
+			url('/fonts/DotGothic16-Regular_optimized.woff2');
+		font-weight: normal;
+	}
+
+	@font-face {
+		font-family: 'VCR OSD Mono';
+		src: local('VCR OSD Mono'), local('VCR OSD'), local('VCR'), url('/fonts/VCR_OSD_MONO.woff2');
 		font-weight: normal;
 	}
 
 	@font-face {
 		font-family: 'Space Grotesk';
 		src: local('Space Grotesk'), local('SpaceGrotesk'), local('spacegrotesk'),
-			local('space grotesk'), url('/fonts/SpaceGrotesk-VariableFont_wght.ttf');
+			local('space grotesk'), url('/fonts/SpaceGrotesk-VariableFont_wght.woff2');
 		font-weight: 300 400 500 600 700;
 	}
 
 	@font-face {
 		font-family: 'Space Mono';
 		src: local('Space Mono'), local('SpaceMono'), local('spacemono'), local('space mono'),
-			url('/fonts/SpaceMono-Regular.ttf');
+			url('/fonts/SpaceMono-Regular.woff2');
 		font-weight: normal;
 	}
 }
 
 @layer components {
+	.card-font-title {
+		@apply font-vcr text-3xl tracking-wide;
+	}
 	.card-transparent {
 		@apply rounded-2xl bg-base-100 bg-opacity-40 shadow-xl backdrop-blur-md;
 	}
