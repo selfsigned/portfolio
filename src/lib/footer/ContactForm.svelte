@@ -11,7 +11,7 @@
 	let showToast = true;
 
 	let spamTimer: NodeJS.Timeout;
-	function preventSpam(func: Function) {
+	function preventSpam() {
 		if (!(spamTimer == null)) {
 			clearTimeout(spamTimer);
 			notify('Please wait before sending a new message');
