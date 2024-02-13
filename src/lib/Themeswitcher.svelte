@@ -6,7 +6,7 @@
 
 	const availableThemes = [
 		{ name: '2Bright', value: 'light' },
-		{ name: 'Forest', value: 'forest' },
+		{ name: 'Forest', value: 'dark' },
 		{ name: 'CYBER', value: 'cyberpunk' },
 		{ name: 'LSD', value: 'acid' }
 	];
@@ -35,8 +35,8 @@
 			<input
 				type="radio"
 				name="theme-dropdown"
-				class="font-vcr theme-controller btn btn-ghost btn-sm btn-block justify-start font-normal"
-				aria-label="Auto"
+				class="theme-controller btn btn-ghost btn-sm btn-block justify-start font-vcr font-normal"
+				aria-label="System (Auto)"
 				value={null}
 				on:change={themeSave}
 				checked={get(themeStore) === null}
@@ -46,7 +46,7 @@
 					<input
 						type="radio"
 						name="theme-dropdown"
-						class="font-vcr theme-controller btn btn-ghost btn-sm btn-block justify-start font-normal"
+						class="theme-controller btn btn-ghost btn-sm btn-block justify-start font-vcr font-normal"
 						aria-label={theme.name}
 						value={theme.value}
 						on:change={themeSave}
