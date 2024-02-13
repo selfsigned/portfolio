@@ -32,7 +32,12 @@
 				<!-- Supplemental stuff -->
 				<div class="flex flex-row flex-wrap place-self-end font-light">
 					<span>©Xavier Perrin, {year},</span>
-					<a href="https://github.com/selfsigned/selfsigned.github.io"> {variables.commitInfo}</a>
+					<a
+						href="https://github.com/selfsigned/selfsigned.github.io/commit/{variables.commitInfo}"
+						class="hover:underline"
+					>
+						{variables.commitInfo}</a
+					>
 				</div>
 			</div>
 		</div>
