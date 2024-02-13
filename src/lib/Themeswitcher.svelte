@@ -5,11 +5,10 @@
 	import IconThemeSelect from '~icons/gridicons/themes';
 
 	const availableThemes = [
-		{ name: 'Light', value: 'light' },
-		{ name: 'Dark', value: 'dark' },
+		{ name: '2Bright', value: 'light' },
 		{ name: 'Forest', value: 'forest' },
-		{ name: 'LSD', value: 'acid' },
-		{ name: 'CYBER', value: 'cyberpunk' }
+		{ name: 'CYBER', value: 'cyberpunk' },
+		{ name: 'LSD', value: 'acid' }
 	];
 
 	function themeSave(event: Event) {
@@ -20,6 +19,7 @@
 
 <div class="dropdown">
 	<div tabindex="-1" role="button" class={$$props.class}>
+		<span class="font-vcr font-normal">Theme</span>
 		<IconThemeSelect class="text-xl" />
 		<svg
 			width="12px"
@@ -35,7 +35,7 @@
 			<input
 				type="radio"
 				name="theme-dropdown"
-				class="theme-controller btn btn-ghost btn-sm btn-block justify-start font-vcr font-normal"
+				class="font-vcr theme-controller btn btn-ghost btn-sm btn-block justify-start font-normal"
 				aria-label="Auto"
 				value={null}
 				on:change={themeSave}
@@ -46,7 +46,7 @@
 					<input
 						type="radio"
 						name="theme-dropdown"
-						class="theme-controller btn btn-ghost btn-sm btn-block justify-start font-vcr font-normal"
+						class="font-vcr theme-controller btn btn-ghost btn-sm btn-block justify-start font-normal"
 						aria-label={theme.name}
 						value={theme.value}
 						on:change={themeSave}

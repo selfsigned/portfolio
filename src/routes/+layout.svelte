@@ -24,7 +24,7 @@
 			<!-- Body -->
 			<slot />
 			<!-- Footer -->
-			<div id="contact" class="card-transparent card-ml card-mr">
+			<div id="contact" class="card-transparent card-ml card-mr md:max-w-[40rem]">
 				<Footer />
 			</div>
 			<Toast />

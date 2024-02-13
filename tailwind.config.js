@@ -39,12 +39,9 @@ export default {
 					primary: '#33ff00'
 				},
 				dark: {
-					...require('daisyui/src/theming/themes')['dark'],
-					primary: '#33ff00',
-					'base-content': '#ffffff'
+					...require('daisyui/src/theming/themes')['forest']
 				}
 			},
-			'forest',
 			'cyberpunk',
 			'acid'
 		]
