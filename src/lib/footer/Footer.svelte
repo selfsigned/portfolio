@@ -18,7 +18,7 @@
 		</div>
 		<!-- <div class="divider" /> -->
 		<div class="grid max-w-[40rem] place-items-center">
-			<span class="font-vcr text-xl">Or send me a mail</span>
+			<span class="font-vcr text-xl">Or send me an email</span>
 			<a href="mailto:me@selfsigned.dev" class="underline">me@selfsigned.dev</a>
 		</div>
 

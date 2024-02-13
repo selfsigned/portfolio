@@ -16,7 +16,7 @@
 </script>
 
 <LaptopModel position={[0, 0, 8]}>
-	<HTML slot="screen" position={[-4.1, 0.04, -3.5]} rotation.x={-Math.PI / 2} transform occlude>
+	<HTML slot="screen" position={[-4.2, 0.04, -3.5]} rotation.x={-Math.PI / 2} transform occlude>
 		<!-- arbitrary size to limit the focus area -->
 		<div class="h-[10px] w-[10px] scale-50 transform-gpu select-none">
 			<V86Component

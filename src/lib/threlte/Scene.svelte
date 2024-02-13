@@ -15,4 +15,7 @@
 
 <T.DirectionalLight position={[0, 10, 10]} intensity={20} castShadow />
 
+<!-- <T.GridHelper args={[200, 20]} /> -->
+<T.GridHelper args={[400, 40]} />
+
 <Laptop />
