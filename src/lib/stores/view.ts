@@ -12,3 +12,8 @@ themeStore.subscribe((val) => {
 		window.localStorage.setItem('theme', val);
 	}
 });
+
+// Scroll
+export const scrollProgress = writable(0);
+export const scrollOffset = writable(0);
+export const scrollIndex = writable(0);
