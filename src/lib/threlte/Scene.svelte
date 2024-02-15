@@ -10,17 +10,7 @@
 	// Theatre
 	import threlteProjectConfig from './threlte.theatre-project-state.json';
 
-	import { onMount } from 'svelte';
-
-	import { spring } from 'svelte/motion';
-	$: springOffset = spring(Math.max(($Scroll.offset - 0.5) * 2, 0), {
-		precision: 0.0000001,
-		damping: 0.95,
-		stiffness: 0.1
-	});
-
-	$: posToProj = $Scroll.index == 0 ? $springOffset : 1;
-	$: console.log($Scroll.offset, posToProj);
+	$: posToProj = $Scroll.index == 0 ? Math.max(($Scroll.offset - 0.5) * 2, 0) : 1;
 </script>
 
 <Project name="threlte" config={{ state: threlteProjectConfig }}>
@@ -34,14 +24,10 @@
 		</Sequence>
 	</Sheet>
 </Project>
-
 <Gizmo />
-<!-- Target ->  -->
-<!-- <T.PerspectiveCamera makeDefault position={[0, 60, 0]} rotation={[-1.5, 0, 0]}> -->
 
 <T.DirectionalLight position={[0, 10, 10]} intensity={20} castShadow />
 
-<!-- <T.GridHelper args={[200, 20]} /> -->
 <T.GridHelper args={[400, 40]} />
 
 <!-- Scroll indicator -->

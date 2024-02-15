@@ -19,7 +19,7 @@
 	<HTML slot="screen" position={[-4.2, 0.04, -3.5]} rotation.x={-Math.PI / 2} transform occlude>
 		<!-- arbitrary size to limit the focus area -->
 		<div class="h-[10px] w-[10px] scale-50 transform-gpu select-none">
-			<!-- <V86Component
+			<V86Component
 				class="transform-gpu font-mono text-sm"
 				{wasmPath}
 				{biosURL}
@@ -27,7 +27,7 @@
 				{cdRomURL}
 				{ramMB}
 				{vgaRamMB}
-			/> -->
+			/>
 		</div>
 	</HTML>
 </LaptopModel>

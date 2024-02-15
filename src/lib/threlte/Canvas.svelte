@@ -1,18 +1,18 @@
 <script lang="ts">
 	import { Canvas } from '@threlte/core';
-	import { Theatre } from '@threlte/theatre';
 	import Scene from '$lib/threlte/Scene.svelte';
 
 	// dev
 	import { dev } from '$app/environment';
-	import { Inspector } from 'three-inspect';
+	import { Studio } from '@threlte/theatre';
+	// import { Inspector } from 'three-inspect';
 
 	let scene;
 </script>
 
+<Studio enabled={dev} />
+
 <Canvas useLegacyLights={false}>
-	<Theatre>
-		<Scene bind:this={scene} />
-	</Theatre>
+	<Scene bind:this={scene} />
 	<!-- <Inspector /> -->
 </Canvas>
