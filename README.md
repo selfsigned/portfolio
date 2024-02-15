@@ -16,6 +16,7 @@ My portfolio/resume website
 - [Unplugins-icons](https://github.com/unplugin/unplugin-icons) Vite icon extension that works with SSR!
 - [V86](https://github.com/copy/v86) The future of the web, X86 emulation
 - [svelte-scroller](https://github.com/sveltejs/svelte-scroller) Beats calculating element sections positions by hand
+- [Theatre.js](https://threlte.xyz/docs/reference/theatre/getting-started) Integrated with threlte, motion design editor tool
 - [Three-inspect](https://github.com/threlte/three-inspect) Cool scene inspector for Three.js/Threlte, bloats the package size though
 
 ## Infrastructre
