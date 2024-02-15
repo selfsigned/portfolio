@@ -1,0 +1,152 @@
+{
+  "sheetsById": {
+    "hero_to_proj": {
+      "staticOverrides": {
+        "byObject": {
+          "camera": {
+            "position": {
+              "y": 1
+            }
+          }
+        }
+      },
+      "sequence": {
+        "subUnitsPerUnit": 30,
+        "length": 10,
+        "type": "PositionalSequence",
+        "tracksByObject": {
+          "camera": {
+            "trackData": {
+              "aMnQINeUPM": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "camera:[\"position\",\"x\"]",
+                "keyframes": []
+              },
+              "SDGycnnvpb": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "camera:[\"position\",\"y\"]",
+                "keyframes": [
+                  {
+                    "id": "RrlwiHl555",
+                    "position": 0,
+                    "connectedRight": true,
+                    "handles": [
+                      0.5,
+                      1,
+                      0.5,
+                      0
+                    ],
+                    "type": "bezier",
+                    "value": 0
+                  },
+                  {
+                    "id": "LjNcH6NP9C",
+                    "position": 0.967,
+                    "connectedRight": true,
+                    "handles": [
+                      0.2349267409844662,
+                      1.083939322855579,
+                      0.5,
+                      0
+                    ],
+                    "type": "bezier",
+                    "value": 39.672413793103445
+                  }
+                ]
+              },
+              "8bNBZIOiHS": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "camera:[\"position\",\"z\"]",
+                "keyframes": []
+              },
+              "9OAS9ipD43": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "camera:[\"rotation\",\"x\"]",
+                "keyframes": [
+                  {
+                    "id": "FNGGr4rH-H",
+                    "position": 0,
+                    "connectedRight": true,
+                    "handles": [
+                      0.5,
+                      1,
+                      0.25148611304399693,
+                      0.23809523809523808
+                    ],
+                    "type": "bezier",
+                    "value": 0
+                  },
+                  {
+                    "id": "yldEyYD6EO",
+                    "position": 0.967,
+                    "connectedRight": true,
+                    "handles": [
+                      0.33184468827952646,
+                      0.8505747126436782,
+                      0.5,
+                      0
+                    ],
+                    "type": "bezier",
+                    "value": -80
+                  }
+                ]
+              },
+              "Cmc1rupjL_": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "camera:[\"rotation\",\"y\"]",
+                "keyframes": [
+                  {
+                    "id": "15QNJwnGyC",
+                    "position": 0,
+                    "connectedRight": true,
+                    "handles": [
+                      0.5,
+                      1,
+                      0.5,
+                      0
+                    ],
+                    "type": "bezier",
+                    "value": 0
+                  }
+                ]
+              },
+              "IGuKhWv65Z": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "camera:[\"rotation\",\"z\"]",
+                "keyframes": [
+                  {
+                    "id": "ADaSLKBUNi",
+                    "position": 0,
+                    "connectedRight": true,
+                    "handles": [
+                      0.5,
+                      1,
+                      0.5,
+                      0
+                    ],
+                    "type": "bezier",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            "trackIdByPropPath": {
+              "[\"position\",\"x\"]": "aMnQINeUPM",
+              "[\"position\",\"y\"]": "SDGycnnvpb",
+              "[\"position\",\"z\"]": "8bNBZIOiHS",
+              "[\"rotation\",\"x\"]": "9OAS9ipD43",
+              "[\"rotation\",\"y\"]": "Cmc1rupjL_",
+              "[\"rotation\",\"z\"]": "IGuKhWv65Z"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitionVersion": "0.4.0",
+  "revisionHistory": [
+    "57j4t_JAPL3ZvM3k",
+    "lF2KzNv5nxU3FtTO",
+    "sV3d4Uy0Cl27D2bL"
+  ]
+}

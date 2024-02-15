@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Canvas } from '@threlte/core';
+	import { Theatre } from '@threlte/theatre';
 	import Scene from '$lib/threlte/Scene.svelte';
 
 	// dev
@@ -10,6 +11,8 @@
 </script>
 
 <Canvas useLegacyLights={false}>
-	<Scene bind:this={scene} />
-	<Inspector />
+	<Theatre>
+		<Scene bind:this={scene} />
+	</Theatre>
+	<!-- <Inspector /> -->
 </Canvas>

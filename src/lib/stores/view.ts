@@ -14,6 +14,5 @@ themeStore.subscribe((val) => {
 });
 
 // Scroll
-export const scrollProgress = writable(0);
-export const scrollOffset = writable(0);
-export const scrollIndex = writable(0);
+type Scroll = { progress: number; index: number; offset: number };
+export const Scroll = writable<Scroll>({ progress: 0, index: 0, offset: 0 });

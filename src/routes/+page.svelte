@@ -5,7 +5,7 @@
 	import TypingAnim from '$lib/animations/Typewritter.svelte';
 
 	import { routes } from '$lib/navigation.ts';
-	import { scrollProgress, scrollOffset, scrollIndex } from '$lib/stores/view';
+	import { Scroll } from '$lib/stores/view';
 
 	import { base } from '$app/paths';
 	import { browser } from '$app/environment';
@@ -18,15 +18,22 @@
 	import Scroller from '@sveltejs/svelte-scroller';
 
 	// Give scroll progress upper / lower bounds
-	let rawScroll: number;
-	$: $scrollProgress = Math.min(Math.max(rawScroll, 0), 100);
+	let rawProgress: number, rawOffset: number, rawIndex: number;
+	function scrollBounds(nbr: number) {
+		return Math.min(Math.max(nbr, 0), 1);
+	}
+	$: $Scroll = {
+		progress: scrollBounds(rawProgress),
+		offset: scrollBounds(rawOffset),
+		index: rawIndex
+	};
 </script>
 
 <svelte:head>
 	<title>Xavier Perrin</title>
 </svelte:head>
 
-<Scroller bind:progress={rawScroll} bind:offset={$scrollOffset} bind:index={$scrollIndex}>
+<Scroller bind:progress={rawProgress} bind:offset={rawOffset} bind:index={rawIndex}>
 	<!-- 3D scene -->
 	<div slot="background" class="fixed top-0 h-[100dvh] w-full">
 		<Canvas />
