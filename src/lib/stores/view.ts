@@ -12,3 +12,7 @@ themeStore.subscribe((val) => {
 		window.localStorage.setItem('theme', val);
 	}
 });
+
+// Scroll
+type Scroll = { progress: number; index: number; offset: number };
+export const Scroll = writable<Scroll>({ progress: 0, index: 0, offset: 0 });

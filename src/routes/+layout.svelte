@@ -1,10 +1,8 @@
 <script lang="ts">
 	import '../app.css';
-
 	import { routes } from '$lib/navigation';
 	import Drawer from '$lib/Drawer.svelte';
 	import Navbar from '$lib/Navbar.svelte';
-	import Footer from '$lib/footer/Footer.svelte';
 	import Toast from '$lib/Toast.svelte';
 
 	const drawerID = 'navbar-drawer';
@@ -16,17 +14,14 @@
 <Drawer {drawerID}>
 	<!-- Body -->
 	<svelte:fragment slot="body">
-		<div class="flex h-[calc(100dvh)] flex-col">
+		<div class="flex h-[100dvh] flex-col">
 			<!-- Navbar -->
 			<div class="sticky z-50 w-full max-w-full">
 				<Navbar {title} {drawerID} {linkedinURL} {githubURL}></Navbar>
 			</div>
 			<!-- Body -->
 			<slot />
-			<!-- Footer -->
-			<div id="contact" class="card-transparent card-ml card-mr md:max-w-[40rem]">
-				<Footer />
-			</div>
+			<!-- Notifications -->
 			<Toast />
 		</div>
 	</svelte:fragment>
