@@ -35,7 +35,7 @@
 
 <Scroller bind:progress={rawProgress} bind:offset={rawOffset} bind:index={rawIndex}>
 	<!-- 3D scene -->
-	<div slot="background" class="fixed top-0 h-[100dvh] w-full">
+	<div slot="background" class="fixed top-0 h-screen w-full">
 		<Canvas />
 	</div>
 
@@ -87,8 +87,10 @@
 			</div>
 		</section>
 		<!-- Contact / Footer -->
-		<section id="contact" class="card-transparent card-ml card-mr md:max-w-[40rem]">
-			<Footer />
+		<section id="contact" class="pt-44">
+			<div class="card-transparent card-ml card-mr md:max-w-[40rem]">
+				<Footer />
+			</div>
 		</section>
 	</div>
 </Scroller>
