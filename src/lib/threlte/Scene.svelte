@@ -1,59 +1,77 @@
 <script lang="ts">
 	// Threlte stuff
 	import { T } from '@threlte/core';
-	import { interactivity, Text, Gizmo, OrbitControls } from '@threlte/extras';
-	import { SheetObject, Project, Sheet, Sequence } from '@threlte/theatre';
+	import { Grid, interactivity, ContactShadows, Text } from '@threlte/extras';
 	interactivity();
 
 	// App stuff
 	import { routes } from '$lib/navigation.ts';
 	import { Scroll } from '$lib/stores/view.ts';
 
+	// camera-controls camera
+	import CameraControls from './camera-controls/CameraControls.svelte';
+	type CameraPos = [x: number, y: number, z: number];
+	type CameraRot = [azimuthAngle: number, polarAngle: number];
+
+	const initialCameraPos: CameraPos = [0, 10, 30];
+	const initialCameraRot: CameraRot = [0, 0.2];
+
+	let cameraControls: any;
+	let cameraPos: CameraPos = [...initialCameraPos];
+	let cameraRot: CameraRot = [...initialCameraRot];
+
+	// change camera position depending on section PoC
+	$: {
+		// TODO read this from some object, maybe make a section component that'd write to a route store?
+		if (cameraControls) {
+			switch ($Scroll.index) {
+				case 0:
+					// Add scroll offset
+					cameraPos[1] = Math.max($Scroll.offset * 2 * initialCameraPos[1], initialCameraPos[1]);
+					console.log(cameraPos[1], initialCameraPos[1]);
+					cameraControls.setPosition(...cameraPos, true);
+					break;
+				case 1:
+					cameraControls.setPosition(0, 50, cameraPos[2], true);
+					cameraControls.rotateTo(0, 0, true);
+					break;
+				case 2:
+					cameraControls.rotateTo(...cameraRot, true);
+					cameraControls.setPosition(20, 30, cameraPos[2], true);
+					break;
+				default:
+					cameraControls.rotateTo(...cameraRot, true);
+					cameraControls.setPosition(...cameraPos, true);
+			}
+		}
+	}
+
 	// models
 	import Laptop from './Laptop.svelte';
 	import Mailbox from './models/Mailbox.svelte';
-
-	// Theatre
-	import threlteProjectConfig from './threlte.theatre-project-state.json';
-
-	$: posToProj = $Scroll.index == 0 ? Math.max(($Scroll.offset - 0.5) * 2, 0) : 1;
-	$: viewingContact = routes.contact.index === $Scroll.index;
 </script>
 
-<!-- TODO refactor -->
+<T.PerspectiveCamera makeDefault position={cameraPos} fov={50}>
+	<CameraControls
+		on:create={({ ref }) => {
+			cameraControls = ref;
+		}}
+	/>
+</T.PerspectiveCamera>
 
-<Project name="threlte" config={{ state: threlteProjectConfig }}>
-	<Sheet name="hero_to_proj">
-		<Sequence position={posToProj}>
-			<SheetObject key="camera" let:Transform>
-				<Transform>
-					<T.PerspectiveCamera makeDefault position={[0, 4, 30]} rotation={[-0.2, 0, 0]} />
-				</Transform>
-			</SheetObject>
-		</Sequence>
-	</Sheet>
+<T.DirectionalLight position={[0, 10, 10]} intensity={15} />
 
-	{#if viewingContact}
-	<Sheet name="contact_section">
-		<SheetObject key="mailbox" let:Transform>
-			<SheetObject key="camera" let:Transform>
-				<Transform>
-					<T.PerspectiveCamera makeDefault position={[0, 4, 30]} rotation={[-0.2, 0, 0]} />
-				</Transform>
-			</SheetObject>
-			<SheetObject key="camera" let:Transform>
-			<Transform>
-				<Mailbox />
-			</Transform>
-		</SheetObject>
-	</Sheet>
-	{/if}
-</Project>
-<Gizmo />
+<Grid
+	receiveShadow
+	sectionColor="#888888"
+	cellSize={0}
+	sectionThickness={1.2}
+	gridSize={[400, 40]}
+	infiniteGrid={true}
+	fadeDistance={300}
+></Grid>
 
-<T.DirectionalLight position={[0, 10, 10]} intensity={20} castShadow />
-
-<T.GridHelper args={[400, 40]} />
+<ContactShadows scale={10} blur={1} far={2.5} opacity={0.5} />
 
 <!-- Scroll indicator -->
 <Text
@@ -63,4 +81,4 @@
 	text={`Progress: ${$Scroll.progress}\noffset: ${$Scroll.offset}\nindex: ${$Scroll.index}`}
 />
 
-<Laptop />
+<Laptop position={[0, 0.6, 0]} />

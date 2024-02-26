@@ -12,9 +12,8 @@
 	<div>
 		<!-- Contact form -->
 		<div class="max-w-[40rem]">
-			{#if variables.siteApiEndpoint}
-				<ContactForm />
-			{/if}
+			{#if !variables.siteApiEndpoint}<span>Inop, No api endpoint Set</span>{/if}
+			<ContactForm />
 		</div>
 		<!-- <div class="divider" /> -->
 		<div class="grid max-w-[40rem] place-items-center">

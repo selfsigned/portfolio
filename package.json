@@ -26,6 +26,7 @@
 		"@threlte/theatre": "^2.1.6",
 		"@types/three": "^0.160.0",
 		"autoprefixer": "^10.4.16",
+		"camera-controls": "2.8.3",
 		"daisyui": "^4.4.17",
 		"postcss": "^8.4.31",
 		"prettier": "^3.1.1",
@@ -44,7 +45,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"animejs": "^3.2.2",
 		"iconify-icon": "^1.0.8",
 		"typewriter-effect": "^2.21.0"
 	}

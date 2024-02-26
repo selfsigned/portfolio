@@ -13,7 +13,7 @@
 
 <div class="collapse collapse-arrow mb-2 border border-base-300 shadow-md">
 	<input type="radio" name={accordionName} />
-	<div class="text-md collapse-title font-medium md:text-xl">
+	<div class="text-md collapse-title font-medium lg:text-xl">
 		<span>{title}</span>
 		<span class="float-right font-light">
 			{#if year !== false}{year}{/if}
@@ -23,10 +23,10 @@
 			{#if location}{location}{/if}</span
 		>
 	</div>
-	<div class="collapse-content">
+	<div class="collapse-content -mt-4">
 		<div class="mb-2 flex flex-row flex-wrap gap-2">
 			{#each tags as tag}
-				<div class="bg-base-200 px-2 font-light">{tag}</div>
+				<div class="rounded-sm bg-base-200 px-2 font-light">{tag}</div>
 			{/each}
 		</div>
 		<slot />
