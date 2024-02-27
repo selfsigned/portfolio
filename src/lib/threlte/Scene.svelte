@@ -1,34 +1,78 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
+	// Threlte stuff
 	import { T } from '@threlte/core';
-	import { interactivity, Text, Gizmo, OrbitControls } from '@threlte/extras';
+	import { Grid, interactivity, ContactShadows, Text } from '@threlte/extras';
 	interactivity();
 
+	// App stuff
 	import { Scroll } from '$lib/stores/view.ts';
-	import { SheetObject, Project, Sheet, Sequence } from '@threlte/theatre';
+	import { sectionsArray } from '$lib/stores/sections';
+	import type { Position, Rotation } from '$lib/stores/sections';
+
+	// camera-controls camera
+	import CameraControls from './camera-controls/CameraControls.svelte';
+
+	let cameraControls: any;
+
+	// Initial camera pos from the hero
+	let InitialPos: Position = $sectionsArray[0]?.targetPos ?? [0, 0.00001, 0];
+	let initialRot: Rotation = $sectionsArray[0]?.targetRot ?? [0, 0];
+	// Camera variables
+	let cameraPos = InitialPos;
+	let cameraRot = initialRot;
+
+	// Apply camera parameters depending on the section
+	$: {
+		if (cameraControls) {
+			const section = $sectionsArray[$Scroll.index];
+			console.log(section, $sectionsArray);
+
+			let tgtPos = (section?.targetPos ?? InitialPos).slice(0);
+
+			if (section?.scrollEffect) tgtPos[1] = Math.max($Scroll.offset * 2 * tgtPos[1], tgtPos[1]);
+
+			// Position
+			cameraControls.setPosition(...tgtPos, true);
+			// Rotation
+			cameraControls.rotateTo(...(section?.targetRot ?? initialRot), true);
+		}
+	}
+
+	// models
 	import Laptop from './Laptop.svelte';
+	import Mailbox from './models/Mailbox.svelte';
+	import Canvas from './Canvas.svelte';
 
-	// Theatre
-	import threlteProjectConfig from './threlte.theatre-project-state.json';
-
-	$: posToProj = $Scroll.index == 0 ? Math.max(($Scroll.offset - 0.5) * 2, 0) : 1;
+	// Fix moving camera on home load
+	onMount(() => {
+		cameraControls.rotateTo(...initialRot, false);
+	});
 </script>
 
-<Project name="threlte" config={{ state: threlteProjectConfig }}>
-	<Sheet name="hero_to_proj">
-		<Sequence position={posToProj}>
-			<SheetObject key="camera" let:Transform>
-				<Transform>
-					<T.PerspectiveCamera makeDefault position={[0, 4, 30]} rotation={[-0.2, 0, 0]} />
-				</Transform>
-			</SheetObject>
-		</Sequence>
-	</Sheet>
-</Project>
-<Gizmo />
+<T.PerspectiveCamera makeDefault position={cameraPos} fov={50}>
+	<CameraControls
+		on:create={({ ref }) => {
+			cameraControls = ref;
+		}}
+	/>
+</T.PerspectiveCamera>
 
-<T.DirectionalLight position={[0, 10, 10]} intensity={20} castShadow />
+<T.DirectionalLight position={[0, 10, 10]} intensity={15} />
 
-<T.GridHelper args={[400, 40]} />
+<Grid
+	receiveShadow
+	sectionColor="#888888"
+	cellSize={0}
+	sectionSize={10}
+	sectionThickness={1.2}
+	gridSize={[400, 40]}
+	infiniteGrid={true}
+	fadeDistance={300}
+></Grid>
+
+<ContactShadows scale={10} blur={1} far={2.5} opacity={0.5} />
 
 <!-- Scroll indicator -->
 <Text
@@ -38,4 +82,4 @@
 	text={`Progress: ${$Scroll.progress}\noffset: ${$Scroll.offset}\nindex: ${$Scroll.index}`}
 />
 
-<Laptop />
+<Laptop position={[0, 0.6, 10]} />

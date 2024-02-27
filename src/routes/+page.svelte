@@ -1,16 +1,11 @@
 <script lang="ts">
-	import Projects from '$lib/projects/Projects.svelte';
+	import Section from '$lib/Section.svelte';
 	import Canvas from '$lib/threlte/Canvas.svelte';
+	import Projects from '$lib/projects/Projects.svelte';
 	import Footer from '$lib/footer/Footer.svelte';
 	import TypingAnim from '$lib/animations/Typewritter.svelte';
 
-	import { routes } from '$lib/navigation.ts';
 	import { Scroll } from '$lib/stores/view';
-
-	import { base } from '$app/paths';
-	import { browser } from '$app/environment';
-	import IconGithub from '~icons/mdi/github-box';
-	import IconLinkedin from '~icons/mdi/linkedin';
 
 	export const looking_for_work = true;
 	export const contact_text = 'Contact me ✍';
@@ -27,6 +22,12 @@
 		offset: scrollBounds(rawOffset),
 		index: rawIndex
 	};
+
+	// Default 3D settings
+	import type { Position, Rotation } from '$lib/stores/sections';
+
+	const defaultPos: Position = [0, 40, 0];
+	const defaultRot: Rotation = [0, 1.3];
 </script>
 
 <svelte:head>
@@ -42,7 +43,14 @@
 	<!-- Content -->
 	<div slot="foreground">
 		<!-- P1: hero -->
-		<section id={routes.hero.id} class="flex h-screen flex-row">
+		<Section
+			class="flex h-screen flex-row"
+			name="Home"
+			key="hero"
+			scrollEffect={true}
+			targetPos={defaultPos}
+			targetRot={defaultRot}
+		>
 			{#if looking_for_work}
 				<!-- Open to work banner -->
 				<div class="rotate-180 justify-start whitespace-nowrap [writing-mode:vertical-lr]">
@@ -79,18 +87,23 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</Section>
 		<!-- P2: Projects -->
-		<section id={routes.projects.id} class="flex h-screen items-center">
+		<Section
+			class="flex h-screen items-center"
+			key="projects"
+			targetPos={[0, 70, defaultPos[2]]}
+			targetRot={[0, 0]}
+		>
 			<div class="card-ml mr-[2.5%] sm:mr-[35%] md:mr-[50%]">
-				<Projects />
+				<Projects title="PROJECTS" />
 			</div>
-		</section>
+		</Section>
 		<!-- Contact / Footer -->
-		<section id="contact" class="pt-44">
+		<Section key="contact" class="pt-44" targetPos={[10, 20, defaultPos[2]]} scrollEffect={true}>
 			<div class="card-transparent card-ml card-mr md:max-w-[40rem]">
-				<Footer />
+				<Footer title="CONTACT" />
 			</div>
-		</section>
+		</Section>
 	</div>
 </Scroller>
