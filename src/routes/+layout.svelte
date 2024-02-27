@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+	import { sectionsArray } from '$lib/stores/sections';
+
 	import '../app.css';
-	import { routes } from '$lib/navigation';
 	import Drawer from '$lib/Drawer.svelte';
 	import Navbar from '$lib/Navbar.svelte';
 	import Toast from '$lib/Toast.svelte';
@@ -33,8 +35,8 @@
 				<h2 class="menu-title">Navigation</h2>
 				<ul>
 					<li>
-						{#each Object.entries(routes) as [_, route]}
-							<a href="/#{route.id}">{route.name}</a>
+						{#each $sectionsArray as section}
+							<a href="{base}/#{section.key}">{section.name}</a>
 						{/each}
 					</li>
 				</ul>

@@ -15,7 +15,7 @@ export default defineConfig(({ command, mode }) => {
 		},
 		plugins: [sveltekit(), Icons({ compiler: 'svelte', autoInstall: true })],
 		ssr: {
-			noExternal: ['three']
+			noExternal: ['three', 'camera-controls']
 		}
 	};
 });
