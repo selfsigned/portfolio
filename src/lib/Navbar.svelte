@@ -3,7 +3,6 @@
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import { browser } from '$app/environment';
-	import { routes } from '$lib/navigation.ts';
 
 	import IconGithub from '~icons/mdi/github-box';
 	import IconLinkedin from '~icons/mdi/linkedin';
@@ -70,7 +69,7 @@
 			<div>
 				<a
 					class="text-md btn btn-primary rounded-full font-bitmap font-normal"
-					href="#{routes.contact.id}">Contact me ✍</a
+					href="{base}/#contact">Contact me ✍</a
 				>
 			</div>
 		</div>

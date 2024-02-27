@@ -1,54 +1,54 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	// Threlte stuff
 	import { T } from '@threlte/core';
 	import { Grid, interactivity, ContactShadows, Text } from '@threlte/extras';
 	interactivity();
 
 	// App stuff
-	import { routes } from '$lib/navigation.ts';
 	import { Scroll } from '$lib/stores/view.ts';
+	import { sectionsArray } from '$lib/stores/sections';
+	import type { Position, Rotation } from '$lib/stores/sections';
 
 	// camera-controls camera
 	import CameraControls from './camera-controls/CameraControls.svelte';
-	type CameraPos = [x: number, y: number, z: number];
-	type CameraRot = [azimuthAngle: number, polarAngle: number];
-
-	const initialCameraPos: CameraPos = [0, 10, 30];
-	const initialCameraRot: CameraRot = [0, 0.2];
 
 	let cameraControls: any;
-	let cameraPos: CameraPos = [...initialCameraPos];
-	let cameraRot: CameraRot = [...initialCameraRot];
 
-	// change camera position depending on section PoC
+	// Initial camera pos from the hero
+	let InitialPos: Position = $sectionsArray[0]?.targetPos ?? [0, 0.00001, 0];
+	let initialRot: Rotation = $sectionsArray[0]?.targetRot ?? [0, 0];
+	// Camera variables
+	let cameraPos = InitialPos;
+	let cameraRot = initialRot;
+
+	// Apply camera parameters depending on the section
 	$: {
-		// TODO read this from some object, maybe make a section component that'd write to a route store?
 		if (cameraControls) {
-			switch ($Scroll.index) {
-				case 0:
-					// Add scroll offset
-					cameraPos[1] = Math.max($Scroll.offset * 2 * initialCameraPos[1], initialCameraPos[1]);
-					console.log(cameraPos[1], initialCameraPos[1]);
-					cameraControls.setPosition(...cameraPos, true);
-					break;
-				case 1:
-					cameraControls.setPosition(0, 50, cameraPos[2], true);
-					cameraControls.rotateTo(0, 0, true);
-					break;
-				case 2:
-					cameraControls.rotateTo(...cameraRot, true);
-					cameraControls.setPosition(20, 30, cameraPos[2], true);
-					break;
-				default:
-					cameraControls.rotateTo(...cameraRot, true);
-					cameraControls.setPosition(...cameraPos, true);
-			}
+			const section = $sectionsArray[$Scroll.index];
+			console.log(section, $sectionsArray);
+
+			let tgtPos = (section?.targetPos ?? InitialPos).slice(0);
+
+			if (section?.scrollEffect) tgtPos[1] = Math.max($Scroll.offset * 2 * tgtPos[1], tgtPos[1]);
+
+			// Position
+			cameraControls.setPosition(...tgtPos, true);
+			// Rotation
+			cameraControls.rotateTo(...(section?.targetRot ?? initialRot), true);
 		}
 	}
 
 	// models
 	import Laptop from './Laptop.svelte';
 	import Mailbox from './models/Mailbox.svelte';
+	import Canvas from './Canvas.svelte';
+
+	// Fix moving camera on home load
+	onMount(() => {
+		cameraControls.rotateTo(...initialRot, false);
+	});
 </script>
 
 <T.PerspectiveCamera makeDefault position={cameraPos} fov={50}>
@@ -65,6 +65,7 @@
 	receiveShadow
 	sectionColor="#888888"
 	cellSize={0}
+	sectionSize={10}
 	sectionThickness={1.2}
 	gridSize={[400, 40]}
 	infiniteGrid={true}
@@ -81,4 +82,4 @@
 	text={`Progress: ${$Scroll.progress}\noffset: ${$Scroll.offset}\nindex: ${$Scroll.index}`}
 />
 
-<Laptop position={[0, 0.6, 0]} />
+<Laptop position={[0, 0.6, 10]} />
