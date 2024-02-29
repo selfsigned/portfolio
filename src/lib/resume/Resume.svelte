@@ -4,6 +4,7 @@
 	import ExperienceEntry from './ExperienceEntry.svelte';
 	import SidebarProgress from './SidebarProgress.svelte';
 	import SidebarSkill from './SidebarSkill.svelte';
+	import SidebarLink from './SidebarLink.svelte';
 
 	// assets
 	import avatarURL from './avatar.webp';
@@ -40,40 +41,34 @@
 
 		<SidebarSection title="CONTACT">
 			{#if phone}
-				<a href="tel:{phone}" class="flex flex-row hover:underline"
-					><IconPhone class="mb-2 mr-1 mt-[1px]" />{phone}</a
-				>
+				<SidebarLink iconComponent={IconPhone} href="tel:{phone}" text={phone} />
 			{/if}
 			{#if website}
-				<a
-					target="_blank"
-					rel="noopener"
+				<SidebarLink
+					iconComponent={IconWeb}
+					tabOpen={true}
 					href="https://{website}"
-					class="flex flex-row hover:underline"><IconWeb class="mb-2 mr-1 mt-[1px]" />{website}</a
-				>
+					text={website}
+				/>
 			{/if}
 			{#if email}
-				<a href="mailto:{email}" class="flex flex-row hover:underline"
-					><IconEmail class="mb-2 mr-1 mt-[1px]" />me@selfsigned.dev</a
-				>
+				<SidebarLink iconComponent={IconEmail} href="mailto:{email}" text={email} />
 			{/if}
 			{#if github}
-				<a
-					target="_blank"
-					rel="noopener"
+				<SidebarLink
+					iconComponent={IconGithub}
+					tabOpen={true}
 					href="https://github.com/{github}"
-					class="flex flex-row hover:underline"
-					><IconGithub class="mb-2 mr-1 mt-[1px]" />github.com/{github}</a
-				>
+					text="github.com/{github}"
+				/>
 			{/if}
 			{#if linkedin}
-				<a
-					target="_blank"
-					rel="noopener"
+				<SidebarLink
+					iconComponent={IconLinkedin}
+					tabOpen={true}
 					href="https://linkedin.com/in/{linkedin}"
-					class="flex flex-row hover:underline"
-					><IconLinkedin class="mb-2 mr-1 mt-[1px]" />linkedin.com/in/{linkedin}</a
-				>
+					text="linkedin.com/in/{linkedin}"
+				/>
 			{/if}
 		</SidebarSection>
 
@@ -88,7 +83,7 @@
 			/>
 			<SidebarSkill
 				title="Devops"
-				tags={['AWS', 'Docker', 'Terraform', 'Ansible', 'Github Actions', 'Proxmox']}
+				tags={['AWS', 'Docker', 'Terraform', 'Ansible', 'Github Actions', 'Proxmox', 'GNU/Linux']}
 			/>
 			<SidebarSkill title="Tools" tags={['Git', 'GitHub', 'GitLab', 'VIM', 'VS Code']} />
 		</SidebarSection>
@@ -121,7 +116,7 @@
 				date="01-06.2019"
 				tags={['Observability', 'Backend', 'Java', 'ElasticSearch', 'Azure', 'OVH']}
 				achivements={[
-					"Enhanced infrastructure's resiliency while developing new features across front and back-end.",
+					"Enhanced the infrastructure's resiliency while developing new features across front and back-end.",
 					'Designed and implemented a monitoring and metrics solution, delivering crucial business and infrastructure insights.'
 				]}
 			/>
@@ -134,7 +129,7 @@
 				tags={['UX', 'Prototyping', 'Project Management', 'Web', 'Bootcamp']}
 				achivements={[
 					'Collaborated with a dynamic team of six to craft an innovative solution to enhance the retail experience of a prestigious brand, informing our approach with guerilla interviews.',
-					'Crafted a prototype, central to showcasing our vision for an enhanced user experience, to LVMH management.'
+					'Crafted a prototype, central to showcasing our vision for an enhanced user experience to LVMH management.'
 				]}
 			/>
 			<ExperienceEntry
