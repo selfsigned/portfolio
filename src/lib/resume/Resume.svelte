@@ -140,7 +140,6 @@
 				achivements={[
 					'IT Architecture Expert Master-level degree. (Ongoing)',
 					'Developed strong self-teaching abilities by working collaboratively on a broad range of subjects.'
-					// TODO star: 'Collaborated on diverse technical projects' ?
 				]}
 			/>
 			<ExperienceEntry
@@ -149,7 +148,6 @@
 				date="09-12.2022"
 				tags={['Design Thinking', 'Art Thinking', 'Startup', 'Leadership']}
 				achivements={[
-					// TODO
 					"Selectioned to take part in a top business school's Master in Management disruptive entrepreneurship specialization.",
 					'Pitched a project we built in a multi-talented team using art and designing thinking methods to a jury composed of professors, domain experts and VCs.'
 				]}
