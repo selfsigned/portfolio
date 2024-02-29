@@ -27,7 +27,6 @@
 	$: {
 		if (cameraControls) {
 			const section = $sectionsArray[$Scroll.index];
-			console.log(section, $sectionsArray);
 
 			let tgtPos = (section?.targetPos ?? InitialPos).slice(0);
 
