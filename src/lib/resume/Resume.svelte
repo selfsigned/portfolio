@@ -30,9 +30,10 @@
 
 <div class="flex h-[29.7cm] w-[21cm] flex-row-reverse">
 	<!-- Sidebar -->
-	<div class="card card-bordered m-2 flex w-5/12 items-center shadow-xl">
-		<div class="avatar my-4">
-			<div class="mb-6 w-32 rounded-3xl shadow-xl">
+	<div class="bg-card-bordered card m-2 flex w-5/12 items-center shadow-xl">
+		<!-- Avatar -->
+		<div class="avatar mb-6 mt-2">
+			<div class="w-[6rem] rounded-3xl border border-base-300 shadow-xl">
 				<img src={avatarURL} alt="profile" />
 			</div>
 		</div>
@@ -71,32 +72,43 @@
 					rel="noopener"
 					href="https://linkedin.com/in/{linkedin}"
 					class="flex flex-row hover:underline"
-					><IconLinkedin class="mb-2 mr-1" />linkedin.com/in/{linkedin}</a
+					><IconLinkedin class="mb-2 mr-1 mt-[1px]" />linkedin.com/in/{linkedin}</a
 				>
 			{/if}
 		</SidebarSection>
 
 		<SidebarSection title="SKILLS">
-			<SidebarSkill title="Languages" tags={['JavaScript', 'TypeScript', 'Python', 'C']} />
-			<SidebarSkill title="Web Development" tags={['Tailwind CSS', 'Svelte', 'SvelteKit']} />
-			<SidebarSkill title="Devops" tags={['AWS', 'Docker', 'Terraform', 'Ansible', 'Proxmox']} />
 			<SidebarSkill
-				title="Tools"
-				tags={['Git', 'GitHub', 'GitLab', 'VIM', 'VS Code', 'SvelteKit', 'Tailwind CSS']}
+				title="Programming Languages"
+				tags={['JavaScript', 'TypeScript', 'Python', 'C']}
 			/>
+			<SidebarSkill
+				title="Web Development"
+				tags={['Svelte', 'SvelteKit', 'HTML', 'Tailwind CSS']}
+			/>
+			<SidebarSkill
+				title="Devops"
+				tags={['AWS', 'Docker', 'Terraform', 'Ansible', 'Github Actions', 'Proxmox']}
+			/>
+			<SidebarSkill title="Tools" tags={['Git', 'GitHub', 'GitLab', 'VIM', 'VS Code']} />
 		</SidebarSection>
-		<SidebarSection title="LANGUAGES">
+		<SidebarSection title="LANGUAGES" titleClass="-mt-2">
 			<div class="mr-4">
 				<SidebarProgress label="English" subLabel="Fluent (C2)" percentage="95" />
 				<SidebarProgress label="French" subLabel="First language" percentage="100" />
 			</div>
+		</SidebarSection>
+		<SidebarSection title="INTERESTS">
+			<SidebarSkill
+				tags={['Street Food', 'Post_Punk', 'New-Wave Cinema', 'Art', 'Entrepreneurship', '...']}
+			/>
 		</SidebarSection>
 	</div>
 
 	<!-- Body -->
 	<div class="my-2 ml-2 flex w-full flex-col gap-2">
 		<!-- Title -->
-		<div class="card glass mt-4 w-full items-center bg-base-300 p-2 shadow-md">
+		<div class="card glass w-full items-center bg-base-300 p-2 shadow-md">
 			<h1 class="font-bitmap text-5xl font-bold tracking-wide">{name}</h1>
 			<div class="divider m-2 mx-[38%] h-1" />
 			<h2 class="text-lg">{title}</h2>
@@ -107,12 +119,10 @@
 				position="DevOps Intern"
 				company="Mixdata"
 				date="01-06.2019"
-				tags={['Observability', 'Backend', 'Azure', 'Java', 'ElasticSearch']}
+				tags={['Observability', 'Backend', 'Java', 'ElasticSearch', 'Azure', 'OVH']}
 				achivements={[
-					// TODO
-					'Echo park hot chicken literally chambray. Tacos banjo slow-carb tilde, messenger bag sriracha marfa bespoke.',
-					'Joy Division, Talking Heads, Merzbow, Boredoms, Joy Division, Talking Heads, Merzbow, Boredoms.',
-					'Echo park hot chicken literally chambray. Tacos banjo slow-carb tilde, messenger bag sriracha marfa bespoke.'
+					"Enhanced infrastructure's resiliency while developing new features across front and back-end.",
+					'Designed and implemented a monitoring and metrics solution, delivering crucial business and infrastructure insights.'
 				]}
 			/>
 		</ResumeBodyCard>
@@ -123,8 +133,8 @@
 				date="01.2024"
 				tags={['UX', 'Prototyping', 'Project Management', 'Web', 'Bootcamp']}
 				achivements={[
-					'Collaborated with a dynamic team of six, comprising HEC, 42 and Strate students in crafting an innovative solution to improve the retail experience of a prestigious brand, informing our approach with customer interviews.',
-					'Developed a prototype, central to our pitch, effectively showcasing our vision for an enhanced user experience.'
+					'Collaborated with a dynamic team of six to craft an innovative solution to enhance the retail experience of a prestigious brand, informing our approach with guerilla interviews.',
+					'Crafted a prototype, central to showcasing our vision for an enhanced user experience, to LVMH management.'
 				]}
 			/>
 			<ExperienceEntry
@@ -133,7 +143,7 @@
 				date="2017-2023"
 				tags={['Programming', 'Infrastructure', 'Security', 'Embedded']}
 				achivements={[
-					'IT Architecture Expert Master-level degree (Ongoing)',
+					'IT Architecture Expert Master-level degree. (Ongoing)',
 					'Developed strong self-teaching abilities by working collaboratively on a broad range of subjects.'
 					// TODO star: 'Collaborated on diverse technical projects' ?
 				]}
@@ -142,9 +152,11 @@
 				position="OPTION E"
 				company="ESCP"
 				date="09-12.2022"
+				tags={['Design Thinking', 'Art Thinking', 'Startup', 'Leadership']}
 				achivements={[
 					// TODO
-					'Echo park hot chicken literally chambray. Tacos banjo slow-carb tilde, messenger bag sriracha marfa bespoke.'
+					"Selectioned to take part in a top business school's Master in Management disruptive entrepreneurship specialization.",
+					'Pitched a project we built in a multi-talented team using art and designing thinking methods to a jury composed of professors, domain experts and VCs.'
 				]}
 			/>
 		</ResumeBodyCard>

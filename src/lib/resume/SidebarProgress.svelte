@@ -12,4 +12,4 @@
 		{/if}
 	</div>
 {/if}
-<progress class="progress w-52" value={percentage} max="100"></progress>
+<progress class="progress w-52 rounded-xl" value={percentage} max="100"></progress>
