@@ -83,7 +83,16 @@
 			/>
 			<SidebarSkill
 				title="Devops"
-				tags={['AWS', 'Docker', 'Terraform', 'Ansible', 'Github Actions', 'Proxmox', 'GNU/Linux']}
+				tags={[
+					'AWS',
+					'Docker',
+					'Terraform',
+					'Ansible',
+					'Github Actions',
+					'Proxmox',
+					'GNU',
+					'Linux'
+				]}
 			/>
 			<SidebarSkill title="Tools" tags={['Git', 'GitHub', 'GitLab', 'VIM', 'VS Code']} />
 		</SidebarSection>
