@@ -31,15 +31,22 @@ export default {
 		}),
 		require('daisyui')
 	],
+	// Moved back to daisyui v3 since oklab isn't supported by html2canvas
 	daisyui: {
 		themes: [
 			{
 				light: {
-					...require('daisyui/src/theming/themes')['light'],
-					primary: '#33ff00'
+					// "[data-theme=light]" for daisyui v3, ['light'] for v4
+					...require('daisyui/src/theming/themes')['[data-theme=light]'],
+					primary: '#33ff00',
+					// for v3
+					'--btn-text-case': 'none'
 				},
 				dark: {
-					...require('daisyui/src/theming/themes')['forest']
+					// ditto
+					...require('daisyui/src/theming/themes')['[data-theme=forest]'],
+					// for v3
+					'--btn-text-case': 'none'
 				}
 			},
 			'cyberpunk',

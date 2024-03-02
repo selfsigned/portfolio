@@ -25,10 +25,6 @@
 	export let github: string | undefined = 'selfsigned';
 </script>
 
-<svelte:head>
-	<title>Resume</title>
-</svelte:head>
-
 <div class="flex h-[29.7cm] w-[21cm] flex-row-reverse">
 	<!-- Sidebar -->
 	<div class="bg-card-bordered card m-2 flex w-5/12 items-center shadow-xl">
@@ -158,7 +154,7 @@
 				tags={['Design Thinking', 'Art Thinking', 'Startup', 'Leadership']}
 				achivements={[
 					"Selectioned to take part in a top business school's Master in Management disruptive entrepreneurship specialization.",
-					'Pitched a project we built in a multi-talented team using art and designing thinking methods to a jury composed of professors, domain experts and VCs.'
+					'Pitched a project developed within a multi-talented team using art and designing thinking methods, to a jury composed of professors, domain experts and VCs.'
 				]}
 			/>
 		</ResumeBodyCard>
