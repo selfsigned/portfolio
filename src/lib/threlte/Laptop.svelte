@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { T } from '@threlte/core';
-	import { HTML } from '@threlte/extras';
+	import HTML from '$lib/threlte_components/HTML/HTML.svelte';
 	import { base } from '$app/paths';
 
 	import LaptopModel from './models/Laptop.svelte';
@@ -16,7 +16,7 @@
 </script>
 
 <LaptopModel {...$$restProps}>
-	<HTML slot="screen" position={[-4.2, 0.04, -3.5]} rotation.x={-Math.PI / 2} transform occlude>
+	<HTML slot="screen" rotation.x={-Math.PI / 2} transform occlude="blending">
 		<!-- arbitrary size to limit the focus area -->
 		<div class="h-[10px] w-[10px] scale-50 transform-gpu select-none">
 			<V86Component

@@ -36,7 +36,7 @@
 
 <Scroller bind:progress={rawProgress} bind:offset={rawOffset} bind:index={rawIndex}>
 	<!-- 3D scene -->
-	<div slot="background" class="fixed top-0 h-screen w-full">
+	<div slot="background" class="top-0 h-screen w-full">
 		<Canvas />
 	</div>
 

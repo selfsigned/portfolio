@@ -24,7 +24,7 @@ Command: npx @threlte/gltf@2.0.1 mac-draco.glb --shadows --transform
 			<T.Group position={[0, 2.96, -0.13]} rotation={[Math.PI / 2, 0, 0]}>
 				<T.Mesh geometry={gltf.nodes.Cube008.geometry} material={gltf.materials.aluminium} />
 				<T.Mesh geometry={gltf.nodes.Cube008_1.geometry} material={gltf.materials['matte.001']} />
-				<T.Mesh geometry={gltf.nodes.Cube008_2.geometry} material={gltf.materials['screen.001']}>
+				<T.Mesh position={[-4.2, 10, -3.5]}>
 					<slot name="screen" />
 				</T.Mesh>
 			</T.Group>

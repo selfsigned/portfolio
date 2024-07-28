@@ -82,3 +82,4 @@
 />
 
 <Laptop position={[0, 0.6, 10]} />
+<T.Mesh position={[0, 0, 20]}><T.BoxGeometry args={[10, 10]} /></T.Mesh>
