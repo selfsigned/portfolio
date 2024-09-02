@@ -27,8 +27,10 @@ const createGithubOIDC = (githubOrganization: string, githubRepo: string) => {
 						},
 						Action: 'sts:AssumeRoleWithWebIdentity',
 						Condition: {
+							StringLike: {
+								'token.actions.githubusercontent.com:sub': `repo:${githubOrganization}/${githubRepo}:*`
+							},
 							StringEquals: {
-								'token.actions.githubusercontent.com:sub': `repo: ${githubOrganization}/${githubRepo}:ref:refs/heads/*`,
 								'token.actions.githubusercontent.com:aud': 'sts.amazonaws.com'
 							}
 						}
