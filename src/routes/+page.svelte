@@ -5,6 +5,9 @@
 	import Footer from '$lib/footer/Footer.svelte';
 	import TypingAnim from '$lib/animations/Typewritter.svelte';
 
+	// Backend data
+	export let form;
+
 	import { Scroll } from '$lib/stores/view';
 
 	export const looking_for_work = true;
@@ -102,7 +105,7 @@
 		<!-- Contact / Footer -->
 		<Section key="contact" class="pt-44" targetPos={[10, 20, defaultPos[2]]} scrollEffect={true}>
 			<div class="card-transparent card-ml card-mr md:max-w-[40rem]">
-				<Footer title="CONTACT" />
+				<Footer action="?/contact" title="CONTACT" {form} />
 			</div>
 		</Section>
 	</div>
