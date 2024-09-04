@@ -1,0 +1,46 @@
+name: Cleanup env on PR close
+
+on:
+  pull_request:
+    types:
+      - closed
+
+concurrency:
+  group: sst-${{ github.event.pull_request.number}}
+
+# necessary for AWS
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  cleanup_aws:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      STAGE_NAME: PR-${{ github.event.pull_request.number }}
+    steps:
+      - name: Setup AWS creds
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: eu-north-1
+          role-to-assume: arn:aws:iam::025066237545:role/PortfolioGithubRole
+          mask-aws-account-id: true
+          role-duration-seconds: 900
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21
+          cache: npm
+
+      - name: Install build dependencies (needed for scripts)
+        run: npm i
+
+      - name: Remove app
+        env:
+          NBR: ${{ github.event.pull_request.number }}
+        run: npm i && npx sst remove --stage ${{ env.STAGE_NAME }}

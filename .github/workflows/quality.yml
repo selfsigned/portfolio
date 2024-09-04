@@ -28,15 +28,3 @@ jobs:
       - name: Run Prettier Check
         run: |
           npm run lint
-
-  tofu_fmt:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: opentofu/setup-opentofu@v1
-
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Run tofu format check
-        run: tofu fmt -check infra/
