@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
-	import * as _ from '$lib/vendor/libv86.js';
 
 	export let ramMB = 32;
 	export let vgaRamMB = 2;
@@ -16,23 +15,26 @@
 
 	let screenContainer: HTMLElement;
 	onMount(() => {
-		var emulator = new V86({
-			wasm_path: wasmPath,
-			memory_size: ramMB * 1024 * 1024,
-			vga_memory_size: vgaRamMB * 1024 * 1024,
-			screen_container: screenContainer,
-			bios: {
-				url: biosURL
-			},
-			vga_bios: {
-				url: vgaBiosURL
-			},
-			cdrom: {
-				url: cdRomURL
-			},
-			autostart: { autostart }
+		var emulator: any;
+		import('$lib/vendor/libv86').then((cjs) => {
+			emulator = new cjs.V86({
+				wasm_path: wasmPath,
+				memory_size: ramMB * 1024 * 1024,
+				vga_memory_size: vgaRamMB * 1024 * 1024,
+				screen_container: screenContainer,
+				bios: {
+					url: biosURL
+				},
+				vga_bios: {
+					url: vgaBiosURL
+				},
+				cdrom: {
+					url: cdRomURL
+				},
+				autostart: { autostart }
+			});
+			console.log(emulator);
 		});
-		console.log(emulator);
 
 		// r/w memory POC, TODO wrappers for struct / write
 		function writeMem() {

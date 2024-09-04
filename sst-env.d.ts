@@ -11,6 +11,10 @@ declare module "sst" {
       "sender": string
       "type": "sst.aws.Email"
     }
+    "selfsigned.dev": {
+      "sender": string
+      "type": "sst.aws.Email"
+    }
   }
 }
 export {}
