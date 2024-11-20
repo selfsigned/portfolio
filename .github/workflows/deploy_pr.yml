@@ -1,0 +1,46 @@
+name: Deploy feature branch
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+concurrency:
+  group: sst-${{ github.event.pull_request.number}}
+
+# necessary for AWS
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      STAGE_NAME: PR-${{ github.event.pull_request.number }}
+
+    steps:
+      - name: Setup AWS creds
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: eu-north-1
+          role-to-assume: arn:aws:iam::025066237545:role/PortfolioGithubRole
+          mask-aws-account-id: true
+          role-duration-seconds: 900
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy
+        run: |
+          npx sst deploy --stage ${{ env.STAGE_NAME }}

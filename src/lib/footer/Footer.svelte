@@ -1,22 +1,24 @@
 <script lang="ts">
+	import type { ActionData } from '../../routes/$types';
 	import { base } from '$app/paths';
 	import { sectionsArray } from '$lib/stores/sections';
-	import { variables } from '$lib/variables.ts';
+	import { variables } from '$lib/variables';
 	import ContactForm from './ContactForm.svelte';
 
 	export let title: string;
+	export let action: string;
+	export let form: ActionData;
 
 	// Copyright
 	const year = new Date().getFullYear();
 </script>
 
 <div class="p-4">
-	<h1 class="card-font-title mb-2">{title}</h1>
+	<h1 class="card-font-title mb-4">{title}</h1>
 	<div>
 		<!-- Contact form -->
 		<div class="max-w-[40rem]">
-			{#if !variables.siteApiEndpoint}<span>Inop, No api endpoint Set</span>{/if}
-			<ContactForm />
+			<ContactForm {action} {form} />
 		</div>
 		<!-- <div class="divider" /> -->
 		<div class="grid max-w-[40rem] place-items-center">
