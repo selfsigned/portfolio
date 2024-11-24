@@ -6,6 +6,9 @@
 
 <div class="card-transparent bg-300 rounded-2xl p-4 shadow-md">
 	<h1 class="card-font-title mb-2">{title}</h1>
+	<ProjectEntry title="Prototype" year="2025" tags={['Web', 'AWS', 'SvelteKit', 'SST']}
+		>Leveraged SvelteKit and SST to build a prototype for a large company.<br />[Under NDA]</ProjectEntry
+	>
 	<ProjectEntry
 		title="StoreCompanion"
 		year="2024"

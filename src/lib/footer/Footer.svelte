@@ -35,6 +35,10 @@
 				{/each}
 				<!-- Supplemental stuff -->
 				<div class="flex flex-row flex-wrap place-self-end font-light">
+					<a href="https://data.inpi.fr/entreprises/934868837" class="hover:underline">
+						SIREN: 934868837</a
+					>
+					<span>&nbsp;</span>
 					<span>©Xavier Perrin, {year},</span>
 					<a
 						href="https://github.com/selfsigned/selfsigned.github.io/commit/{variables.commitInfo}"

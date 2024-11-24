@@ -72,21 +72,31 @@
 				md:my-5 lg:text-7xl"
 				>
 					<!-- Name / Job -->
-					<div class="z-10">
+					<div class="card-transparent -z-10 max-w-[85%] bg-opacity-70 p-10 md:ml-5 md:max-w-max">
 						<p>
-							HI, I'M<br />
+							HI, I'M&nbsp;
 							<span
-								class="font-bitmap tracking-widest text-primary shadow-primary text-shadow-md md:text-5xl lg:text-8xl"
+								class="whitespace-nowrap font-bitmap tracking-widest text-primary shadow-primary text-shadow-md md:text-5xl lg:text-7xl"
 							>
-								XAVIER<br />PERRIN<br />
+								XAVIER PERRIN<br />
 							</span>
 						</p>
-						<div class="mb-3 w-40 self-start font-mono md:mb-5">
+						<div class="mb-5 self-start font-mono text-3xl md:mb-4 md:text-4xl lg:text-5xl">
 							&gt;<span id="title-anim"></span>
 							<!-- Not FullStack (yet) -->
 							<!-- <TypingAnim selector="#title-anim" text={['DevOps', 'FullStack']} /> -->
-							<TypingAnim selector="#title-anim" text={['Dev']} loop={false} />
+							<TypingAnim selector="#title-anim" text={['Freelance Dev']} loop={false} />
 						</div>
+						<h1 class="card-font-title -mb-4">INTRO</h1>
+						<div class="divider divider-neutral -mb-0" />
+						<p class="text-left indent-4 text-lg md:text-xl">
+							Looking for a robust web app that scales effortlessly?
+						</p>
+						<p class="text-left text-lg md:text-xl">Need a rapid prototype or cloud support?</p>
+						<p class="text-left indent-4 text-lg md:text-xl">
+							With AWS certifications and a broad array of tech expertise-from cloud architecture to
+							full-stack development—I’ve got you covered!
+						</p>
 					</div>
 				</div>
 			</div>
